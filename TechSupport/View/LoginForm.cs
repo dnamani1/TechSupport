@@ -1,32 +1,37 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using TechSupport.Controller;
 
 namespace TechSupport.View
 {
+    /// <summary>
+    /// Represents a login form for user authentication.
+    /// </summary>
     public partial class LoginForm : Form
     {
         private readonly IncidentController _incidentController;
 
-         public LoginForm()
+        /// <summary>
+        /// Initializes a new instance of the LoginForm class.
+        /// </summary>
+        public LoginForm()
         {
             InitializeComponent();
             _incidentController = new IncidentController();
         }
 
+        /// <summary>
+        /// Handles the Click event of the Login button.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void LoginButton_Click(object sender, EventArgs e)
         {
             errorMessageLabel.Visible = false;
 
-            string username = _incidentController.GetUsername();
-            string password = _incidentController.GetPassword();
+            var username = _incidentController.GetUsername();
+            var password = _incidentController.GetPassword();
 
             bool credentialsValid = ValidateCredentials(username, password);
 
@@ -40,11 +45,20 @@ namespace TechSupport.View
             }
         }
 
+        /// <summary>
+        /// Validates the credentials entered by the user.
+        /// </summary>
+        /// <param name="username">The expected username.</param>
+        /// <param name="password">The expected password.</param>
+        /// <returns>true if credentials are valid; otherwise, false.</returns>
         private bool ValidateCredentials(string username, string password)
         {
             return username == usernameTextBox.Text && password == passwordMaskedTextBox.Text;
         }
 
+        /// <summary>
+        /// Handles successful login by the user.
+        /// </summary>
         private void HandleSuccessfulLogin()
         {
             var mainform = new MainForm();
@@ -64,6 +78,9 @@ namespace TechSupport.View
             ClearCredentials();
         }
 
+        /// <summary>
+        /// Handles invalid login attempt.
+        /// </summary>
         private void HandleInvalidLogin()
         {
             ClearCredentials();
@@ -72,25 +89,33 @@ namespace TechSupport.View
             errorMessageLabel.Visible = true;
         }
 
+        /// <summary>
+        /// Clears the credential inputs.
+        /// </summary>
         private void ClearCredentials()
         {
             usernameTextBox.Clear();
             passwordMaskedTextBox.Clear();
         }
 
+        /// <summary>
+        /// Handles the TextChanged event of the UsernameTextBox.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void UsernameTextBox_TextChanged(object sender, EventArgs e)
         {
             errorMessageLabel.Visible = false;
         }
 
+        /// <summary>
+        /// Handles the MaskInputRejected event of the PasswordMaskedTextBox.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="MaskInputRejectedEventArgs"/> instance containing the event data.</param>
         private void PasswordMaskedTextBox_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
         {
             errorMessageLabel.Visible = false;
-        }
-
-        private void LoginForm_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }
