@@ -31,8 +31,9 @@
             this.userNameLabel = new System.Windows.Forms.Label();
             this.userNameTextBox = new System.Windows.Forms.TextBox();
             this.passwordLabel = new System.Windows.Forms.Label();
-            this.passwordTextBox = new System.Windows.Forms.TextBox();
             this.loginButton = new System.Windows.Forms.Button();
+            this.passwordMaskedTextBox = new System.Windows.Forms.MaskedTextBox();
+            this.errorMessageLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // userNameLabel
@@ -60,32 +61,46 @@
             this.passwordLabel.TabIndex = 2;
             this.passwordLabel.Text = "Password:";
             // 
-            // passwordTextBox
-            // 
-            this.passwordTextBox.Location = new System.Drawing.Point(372, 209);
-            this.passwordTextBox.Name = "passwordTextBox";
-            this.passwordTextBox.Size = new System.Drawing.Size(174, 26);
-            this.passwordTextBox.TabIndex = 3;
-            // 
             // loginButton
             // 
             this.loginButton.Location = new System.Drawing.Point(338, 314);
             this.loginButton.Name = "loginButton";
             this.loginButton.Size = new System.Drawing.Size(88, 32);
-            this.loginButton.TabIndex = 4;
+            this.loginButton.TabIndex = 5;
             this.loginButton.Text = "Login";
             this.loginButton.UseVisualStyleBackColor = true;
+            // 
+            // passwordMaskedTextBox
+            // 
+            this.passwordMaskedTextBox.Location = new System.Drawing.Point(372, 209);
+            this.passwordMaskedTextBox.Name = "passwordMaskedTextBox";
+            this.passwordMaskedTextBox.PasswordChar = '*';
+            this.passwordMaskedTextBox.Size = new System.Drawing.Size(174, 26);
+            this.passwordMaskedTextBox.TabIndex = 4;
+            // 
+            // errorMessageLabel
+            // 
+            this.errorMessageLabel.AutoSize = true;
+            this.errorMessageLabel.Location = new System.Drawing.Point(334, 255);
+            this.errorMessageLabel.Name = "errorMessageLabel";
+            this.errorMessageLabel.Size = new System.Drawing.Size(0, 20);
+            this.errorMessageLabel.TabIndex = 6;
+            this.errorMessageLabel.Text = "Error";
+            this.errorMessageLabel.Visible = false;
             // 
             // loginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.errorMessageLabel);
+            this.Controls.Add(this.passwordMaskedTextBox);
             this.Controls.Add(this.loginButton);
-            this.Controls.Add(this.passwordTextBox);
             this.Controls.Add(this.passwordLabel);
             this.Controls.Add(this.userNameTextBox);
             this.Controls.Add(this.userNameLabel);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "loginForm";
             this.Text = "Login";
             this.ResumeLayout(false);
@@ -98,7 +113,8 @@
         private System.Windows.Forms.Label userNameLabel;
         private System.Windows.Forms.TextBox userNameTextBox;
         private System.Windows.Forms.Label passwordLabel;
-        private System.Windows.Forms.TextBox passwordTextBox;
         private System.Windows.Forms.Button loginButton;
+        private System.Windows.Forms.MaskedTextBox passwordMaskedTextBox;
+        private System.Windows.Forms.Label errorMessageLabel;
     }
 }
