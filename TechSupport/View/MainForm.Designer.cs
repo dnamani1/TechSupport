@@ -1,6 +1,6 @@
 ﻿namespace TechSupport.View
 {
-    partial class mainForm
+    partial class MainForm
     {
         /// <summary>
         /// Required designer variable.
@@ -63,6 +63,7 @@
             this.addIncidentButton.TabIndex = 2;
             this.addIncidentButton.Text = "Add Incident";
             this.addIncidentButton.UseVisualStyleBackColor = true;
+            this.addIncidentButton.Click += new System.EventHandler(this.AddIncidentButton_Click);
             // 
             // searchIncidentButton
             // 
@@ -72,6 +73,7 @@
             this.searchIncidentButton.TabIndex = 3;
             this.searchIncidentButton.Text = "Search Incident";
             this.searchIncidentButton.UseVisualStyleBackColor = true;
+            this.searchIncidentButton.Click += new System.EventHandler(this.SearchIncidentButton_Click);
             // 
             // dataGridView1
             // 
@@ -83,7 +85,7 @@
             this.dataGridView1.Size = new System.Drawing.Size(725, 225);
             this.dataGridView1.TabIndex = 4;
             // 
-            // mainForm
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -93,7 +95,7 @@
             this.Controls.Add(this.addIncidentButton);
             this.Controls.Add(this.logoutLinkLabel);
             this.Controls.Add(this.usernameLable);
-            this.Name = "mainForm";
+            this.Name = "MainForm";
             this.Text = "TechSupport";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
