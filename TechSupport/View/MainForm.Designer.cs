@@ -96,6 +96,7 @@
             this.Controls.Add(this.logoutLinkLabel);
             this.Controls.Add(this.usernameLable);
             this.Name = "MainForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TechSupport";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
