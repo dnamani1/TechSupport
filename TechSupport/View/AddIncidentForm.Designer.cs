@@ -1,6 +1,6 @@
 ﻿namespace TechSupport.View
 {
-    partial class addIncidentForm
+    partial class AddIncidentForm
     {
         /// <summary>
         /// Required designer variable.
@@ -48,7 +48,7 @@
             this.addIncidentlabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addIncidentlabel.Location = new System.Drawing.Point(278, 23);
             this.addIncidentlabel.Name = "addIncidentlabel";
-            this.addIncidentlabel.Size = new System.Drawing.Size(226, 29);
+            this.addIncidentlabel.Size = new System.Drawing.Size(152, 20);
             this.addIncidentlabel.TabIndex = 0;
             this.addIncidentlabel.Text = "Add Incident Details";
             // 
@@ -58,7 +58,7 @@
             this.titleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.titleLabel.Location = new System.Drawing.Point(173, 101);
             this.titleLabel.Name = "titleLabel";
-            this.titleLabel.Size = new System.Drawing.Size(55, 25);
+            this.titleLabel.Size = new System.Drawing.Size(39, 17);
             this.titleLabel.TabIndex = 1;
             this.titleLabel.Text = "Title:";
             // 
@@ -67,8 +67,9 @@
             this.titleTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.titleTextBox.Location = new System.Drawing.Point(316, 98);
             this.titleTextBox.Name = "titleTextBox";
-            this.titleTextBox.Size = new System.Drawing.Size(270, 30);
+            this.titleTextBox.Size = new System.Drawing.Size(270, 23);
             this.titleTextBox.TabIndex = 2;
+            this.titleTextBox.TextChanged += new System.EventHandler(this.TitleTextBox_TextChanged);
             // 
             // descriptionLabel
             // 
@@ -76,7 +77,7 @@
             this.descriptionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.descriptionLabel.Location = new System.Drawing.Point(173, 189);
             this.descriptionLabel.Name = "descriptionLabel";
-            this.descriptionLabel.Size = new System.Drawing.Size(115, 25);
+            this.descriptionLabel.Size = new System.Drawing.Size(83, 17);
             this.descriptionLabel.TabIndex = 3;
             this.descriptionLabel.Text = "Description:";
             // 
@@ -88,6 +89,7 @@
             this.descriptionTextBox.Name = "descriptionTextBox";
             this.descriptionTextBox.Size = new System.Drawing.Size(270, 72);
             this.descriptionTextBox.TabIndex = 4;
+            this.descriptionTextBox.TextChanged += new System.EventHandler(this.DescriptionTextBox_TextChanged);
             // 
             // customerIDlabel
             // 
@@ -95,7 +97,7 @@
             this.customerIDlabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.customerIDlabel.Location = new System.Drawing.Point(173, 287);
             this.customerIDlabel.Name = "customerIDlabel";
-            this.customerIDlabel.Size = new System.Drawing.Size(122, 25);
+            this.customerIDlabel.Size = new System.Drawing.Size(85, 17);
             this.customerIDlabel.TabIndex = 5;
             this.customerIDlabel.Text = "CustomerID:";
             // 
@@ -104,8 +106,9 @@
             this.customerIDTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.customerIDTextBox.Location = new System.Drawing.Point(316, 287);
             this.customerIDTextBox.Name = "customerIDTextBox";
-            this.customerIDTextBox.Size = new System.Drawing.Size(270, 30);
+            this.customerIDTextBox.Size = new System.Drawing.Size(270, 23);
             this.customerIDTextBox.TabIndex = 6;
+            this.customerIDTextBox.TextChanged += new System.EventHandler(this.CustomerIDTextBox_TextChanged);
             // 
             // addIncidentButton
             // 
@@ -154,7 +157,7 @@
             this.customerErrorLabel.TabIndex = 11;
             this.customerErrorLabel.Text = "customerErrorLabel";
             // 
-            // addIncidentForm
+            // AddIncidentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -173,7 +176,8 @@
             this.Controls.Add(this.addIncidentlabel);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "addIncidentForm";
+            this.Name = "AddIncidentForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add Incident";
             this.ResumeLayout(false);
             this.PerformLayout();
