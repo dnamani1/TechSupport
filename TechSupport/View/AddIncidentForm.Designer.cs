@@ -119,6 +119,7 @@
             this.addIncidentButton.TabIndex = 7;
             this.addIncidentButton.Text = "Add Incident";
             this.addIncidentButton.UseVisualStyleBackColor = true;
+            this.addIncidentButton.Click += new System.EventHandler(this.AddIncidentButton_Click);
             // 
             // cancleButton
             // 
@@ -129,33 +130,31 @@
             this.cancleButton.TabIndex = 8;
             this.cancleButton.Text = "Cancel";
             this.cancleButton.UseVisualStyleBackColor = true;
+            this.cancleButton.Click += new System.EventHandler(this.CancleButton_Click);
             // 
             // titleErrorLabel
             // 
             this.titleErrorLabel.AutoSize = true;
             this.titleErrorLabel.Location = new System.Drawing.Point(316, 135);
             this.titleErrorLabel.Name = "titleErrorLabel";
-            this.titleErrorLabel.Size = new System.Drawing.Size(108, 20);
+            this.titleErrorLabel.Size = new System.Drawing.Size(0, 13);
             this.titleErrorLabel.TabIndex = 9;
-            this.titleErrorLabel.Text = "titleErrorLabel";
             // 
             // descriptionErrorLabel
             // 
             this.descriptionErrorLabel.AutoSize = true;
             this.descriptionErrorLabel.Location = new System.Drawing.Point(316, 248);
             this.descriptionErrorLabel.Name = "descriptionErrorLabel";
-            this.descriptionErrorLabel.Size = new System.Drawing.Size(160, 20);
+            this.descriptionErrorLabel.Size = new System.Drawing.Size(0, 13);
             this.descriptionErrorLabel.TabIndex = 10;
-            this.descriptionErrorLabel.Text = "descriptionErrorLabel";
             // 
             // customerErrorLabel
             // 
             this.customerErrorLabel.AutoSize = true;
             this.customerErrorLabel.Location = new System.Drawing.Point(316, 324);
             this.customerErrorLabel.Name = "customerErrorLabel";
-            this.customerErrorLabel.Size = new System.Drawing.Size(149, 20);
+            this.customerErrorLabel.Size = new System.Drawing.Size(0, 13);
             this.customerErrorLabel.TabIndex = 11;
-            this.customerErrorLabel.Text = "customerErrorLabel";
             // 
             // AddIncidentForm
             // 

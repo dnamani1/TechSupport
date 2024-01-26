@@ -1,7 +1,5 @@
 ﻿using System;
-
 using System.Drawing;
-
 using System.Windows.Forms;
 using TechSupport.Controller;
 using TechSupport.Model;
@@ -72,7 +70,7 @@ namespace TechSupport.View
 
             try
             {
-                int customerID = Convert.ToInt32(customerIDTextBox);
+                int customerID = Convert.ToInt32(customerIDTextBox.Text);
                 var incident = new Incident
                 {
                     Title = title,
@@ -99,13 +97,14 @@ namespace TechSupport.View
                 customerErrorLabel.Text = "CustomerID is out of range";
                 customerErrorLabel.ForeColor = Color.Red;
                 customerErrorLabel.Visible = true;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"An unexpected error occured {ex.Message}",
-                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
- 
+            }   
+
+        }
+
+        private void CancleButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            DialogResult = DialogResult.OK;
         }
     }
 }

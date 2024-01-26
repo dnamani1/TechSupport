@@ -54,11 +54,18 @@ namespace TechSupport.View
 
             if(result == DialogResult.OK)
             {
-                dataGridView.DataSource = null;
-                dataGridView.DataSource = _incidentController.GetIncidents();
+                RefreshIncidentsDataGrid();
             }
 
         }
+
+        private void RefreshIncidentsDataGrid()
+        {
+            dataGridView.DataSource = null;
+            dataGridView.DataSource = _incidentController.GetIncidents();
+            dataGridView.Refresh();
+        }
+
 
         private void SearchIncidentButton_Click(object sender, EventArgs e)
         {
