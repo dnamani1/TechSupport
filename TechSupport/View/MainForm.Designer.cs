@@ -32,8 +32,8 @@
             this.logoutLinkLabel = new System.Windows.Forms.LinkLabel();
             this.addIncidentButton = new System.Windows.Forms.Button();
             this.searchIncidentButton = new System.Windows.Forms.Button();
-            this.dataGridView = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
+            this.incidentDataGridView = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.incidentDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // usernameLable
@@ -76,22 +76,22 @@
             this.searchIncidentButton.UseVisualStyleBackColor = true;
             this.searchIncidentButton.Click += new System.EventHandler(this.SearchIncidentButton_Click);
             // 
-            // dataGridView
+            // incidentDataGridView
             // 
-            this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView.Location = new System.Drawing.Point(36, 210);
-            this.dataGridView.Name = "dataGridView";
-            this.dataGridView.RowHeadersWidth = 62;
-            this.dataGridView.RowTemplate.Height = 28;
-            this.dataGridView.Size = new System.Drawing.Size(725, 225);
-            this.dataGridView.TabIndex = 4;
+            this.incidentDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.incidentDataGridView.Location = new System.Drawing.Point(36, 210);
+            this.incidentDataGridView.Name = "incidentDataGridView";
+            this.incidentDataGridView.RowHeadersWidth = 62;
+            this.incidentDataGridView.RowTemplate.Height = 28;
+            this.incidentDataGridView.Size = new System.Drawing.Size(725, 225);
+            this.incidentDataGridView.TabIndex = 4;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.dataGridView);
+            this.Controls.Add(this.incidentDataGridView);
             this.Controls.Add(this.searchIncidentButton);
             this.Controls.Add(this.addIncidentButton);
             this.Controls.Add(this.logoutLinkLabel);
@@ -99,7 +99,7 @@
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TechSupport";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.incidentDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -111,6 +111,6 @@
         private System.Windows.Forms.LinkLabel logoutLinkLabel;
         private System.Windows.Forms.Button addIncidentButton;
         private System.Windows.Forms.Button searchIncidentButton;
-        private System.Windows.Forms.DataGridView dataGridView;
+        private System.Windows.Forms.DataGridView incidentDataGridView;
     }
 }

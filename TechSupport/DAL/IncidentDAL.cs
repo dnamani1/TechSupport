@@ -1,11 +1,10 @@
 ﻿using System.Collections.Generic;
-
 using TechSupport.Model;
 
 namespace TechSupport.DAL
 {
     /// <summary>
-    /// data access layer between model and view for Instance
+    /// Data access layer between model and view for Incidents.
     /// </summary>
     public class IncidentDAL
     {
@@ -30,6 +29,24 @@ namespace TechSupport.DAL
         public List<Incident> GetIncidents()
         {
             return _incidents;
+        }
+
+        /// <summary>
+        /// Gets the customer incidents.
+        /// </summary>
+        /// <returns>List of customer incidents</returns>
+        public List<Incident> GetCustomerIncidents()
+        {
+            return customerIncidents;
+        }
+
+        /// <summary>
+        /// Adds the customers incidents.
+        /// </summary>
+        /// <param name="incident">The incident.</param>
+        public void AddCustomersIncidents(Incident incident)
+        {
+            customerIncidents.Add(incident);
         }
 
     }

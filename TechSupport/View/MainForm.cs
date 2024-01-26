@@ -1,15 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using TechSupport.Controller;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
-
 
 namespace TechSupport.View
 {
@@ -59,19 +50,32 @@ namespace TechSupport.View
 
         }
 
+        /// <summary>
+        /// Refreshes the incidents data grid.
+        /// </summary>
         private void RefreshIncidentsDataGrid()
         {
-            dataGridView.DataSource = null;
-            dataGridView.DataSource = _incidentController.GetIncidents();
-            dataGridView.Refresh();
+            incidentDataGridView.DataSource = null;
+            incidentDataGridView.DataSource = _incidentController.GetIncidents();
+            incidentDataGridView.Refresh();
         }
 
-
+        /// <summary>
+        /// Handles the Click event of the SearchIncidentButton control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void SearchIncidentButton_Click(object sender, EventArgs e)
         {
-
+            var searchIncidentButton = new SearchIncidentForm();
+            searchIncidentButton.ShowDialog();
         }
 
+        /// <summary>
+        /// Handles the LinkClicked event of the LogoutLinkLabel control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="LinkLabelLinkClickedEventArgs"/> instance containing the event data.</param>
         private void LogoutLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             this.Close();
