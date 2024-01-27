@@ -48,6 +48,7 @@ namespace TechSupport.View
             {
                 var customerID = Convert.ToInt32(customerIDTextBox.Text);
                 bool customerFound = false;
+                _incidentDAL.GetCustomerIncidents().Clear();
 
                 foreach (Incident incident in _incidentDAL.GetIncidents())
                 {
