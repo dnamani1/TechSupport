@@ -14,7 +14,6 @@ namespace TechSupport.View
     public partial class SearchIncidentForm : Form
     {
         private readonly IncidentController _incidentController;
-        private readonly IncidentDAL _incidentDAL;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="SearchIncidentForm"/> class.
@@ -23,7 +22,6 @@ namespace TechSupport.View
         {
             InitializeComponent();
             this._incidentController = new IncidentController();
-            this._incidentDAL = new IncidentDAL();
         }
 
         /// <summary>
@@ -43,28 +41,17 @@ namespace TechSupport.View
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void SearchButton_Click(object sender, EventArgs e)
         {
-
             try
             {
                 var customerID = Convert.ToInt32(customerIDTextBox.Text);
-                bool customerFound = false;
-                _incidentDAL.GetCustomerIncidents().Clear();
+                var incidents = _incidentController.SearchIncidentsByCustomerID(customerID);
 
-                foreach (Incident incident in _incidentDAL.GetIncidents())
-                {
-                    if (customerID == incident.CustomerID)
-                    {
-                        _incidentDAL.AddCustomersIncidents(incident);
-                        customerFound = true;
-                    }
-                }
-
-                if (customerFound)
+                if (incidents.Count > 0)
                 {
                     errorLabel.Visible = false;
                     incidentDataGridView2.Visible = true;
                     incidentDataGridView2.DataSource = null;
-                    incidentDataGridView2.DataSource = _incidentDAL.GetCustomerIncidents();
+                    incidentDataGridView2.DataSource = incidents;
                 }
                 else
                 {

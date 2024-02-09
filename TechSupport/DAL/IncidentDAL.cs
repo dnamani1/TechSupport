@@ -8,46 +8,38 @@ namespace TechSupport.DAL
     /// </summary>
     public class IncidentDAL
     {
+        // Static list to hold all incidents across sessions.
         private static readonly List<Incident> _incidents = new List<Incident>();
-        private readonly List<Incident> customerIncidents = new List<Incident>();
 
         /// <summary>
-        /// Adds the specified incident.
+        /// Adds the specified incident to the list.
         /// </summary>
-        /// <param name="incident">The incident.</param>
-        /// <exception cref="System.NotImplementedException"></exception>
+        /// <param name="incident">The incident to add.</param>
         public void Add(Incident incident)
         {
-            _incidents.Add(incident);
+            if (incident != null)
+            {
+                _incidents.Add(incident);
+            }
         }
 
         /// <summary>
-        /// Gets the incidents.
+        /// Retrieves all incidents stored in the list.
         /// </summary>
-        /// <returns></returns>
-        /// <exception cref="System.NotImplementedException"></exception>
+        /// <returns>A list of all incidents.</returns>
         public List<Incident> GetIncidents()
         {
             return _incidents;
         }
 
         /// <summary>
-        /// Gets the customer incidents.
+        /// Searches the incidents by customer identifier.
         /// </summary>
-        /// <returns>List of customer incidents</returns>
-        public List<Incident> GetCustomerIncidents()
+        /// <param name="customerID">The customer identifier.</param>
+        /// <returns></returns>
+        public List<Incident> SearchIncidentsByCustomerID(int customerID)
         {
-            return customerIncidents;
+            return _incidents.FindAll(incident => incident.CustomerID == customerID);
         }
-
-        /// <summary>
-        /// Adds the customers incidents.
-        /// </summary>
-        /// <param name="incident">The incident.</param>
-        public void AddCustomersIncidents(Incident incident)
-        {
-            customerIncidents.Add(incident);
-        }
-
     }
 }

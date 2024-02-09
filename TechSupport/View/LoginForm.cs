@@ -10,7 +10,6 @@ namespace TechSupport.View
     /// </summary>
     public partial class LoginForm : Form
     {
-        private readonly IncidentController _incidentController;
 
         /// <summary>
         /// Initializes a new instance of the LoginForm class.
@@ -18,7 +17,7 @@ namespace TechSupport.View
         public LoginForm()
         {
             InitializeComponent();
-            _incidentController = new IncidentController();
+
         }
 
         /// <summary>
@@ -30,21 +29,23 @@ namespace TechSupport.View
         {
             errorMessageLabel.Visible = false;
 
-            var username = _incidentController.GetUsername();
-            var password = _incidentController.GetPassword();
-
-            bool credentialsValid = ValidateCredentials(username, password);
-
-            if (credentialsValid)
+            IncidentController incidentController = new IncidentController();
             {
-                HandleSuccessfulLogin();
-            }
-            else
-            {
-                HandleInvalidLogin();
+                var username = incidentController.GetUsername();
+                var password = incidentController.GetPassword();
+
+                bool credentialsValid = ValidateCredentials(username, password);
+
+                if (credentialsValid)
+                {
+                    HandleSuccessfulLogin();
+                }
+                else
+                {
+                    HandleInvalidLogin();
+                }
             }
         }
-
         /// <summary>
         /// Validates the credentials entered by the user.
         /// </summary>
@@ -61,21 +62,22 @@ namespace TechSupport.View
         /// </summary>
         private void HandleSuccessfulLogin()
         {
-            var mainform = new MainForm();
-            mainform.SetController(_incidentController);
-            this.Hide();
-            var value = mainform.ShowDialog();
 
-            if (value != DialogResult.OK)
+            this.Hide();
+            var mainForm = new MainForm();
+            var dialogResult = mainForm.ShowDialog();
+
+            if (dialogResult == DialogResult.OK)
             {
-                this.Close();
+
+                this.Show();
+                ClearCredentials();
             }
             else
             {
-                this.Show();
+ 
+                this.Close();
             }
-
-            ClearCredentials();
         }
 
         /// <summary>

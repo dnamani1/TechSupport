@@ -25,29 +25,22 @@ namespace TechSupport.View
         }
 
         /// <summary>
-        /// Sets the controller.
-        /// </summary>
-        /// <param name="controller">The controller.</param>
-        public void SetController(IncidentController controller)
-        {
-            _incidentController = controller;
-        }
-
-        /// <summary>
         /// Handles the Click event of the AddIncidentButton control.
         /// </summary>
         /// <param name="sender">The source of the event.</param>
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void AddIncidentButton_Click(object sender, EventArgs e)
         {
-            var addIncident = new AddIncidentForm();
-            var result = addIncident.ShowDialog();
-
-            if(result == DialogResult.OK)
+            using (var addIncidentForm = new AddIncidentForm())
             {
-                RefreshIncidentsDataGrid();
-            }
+                var result = addIncidentForm.ShowDialog();
 
+                if (result == DialogResult.OK)
+                {
+                    RefreshIncidentsDataGrid();
+                }
+
+            }
         }
 
         /// <summary>
@@ -67,8 +60,9 @@ namespace TechSupport.View
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void SearchIncidentButton_Click(object sender, EventArgs e)
         {
-            var searchIncidentButton = new SearchIncidentForm();
-            searchIncidentButton.ShowDialog();
+            using (var searchIncidentForm = new SearchIncidentForm())
+            { searchIncidentForm.ShowDialog(); }
+        
         }
 
         /// <summary>
@@ -78,8 +72,7 @@ namespace TechSupport.View
         /// <param name="e">The <see cref="LinkLabelLinkClickedEventArgs"/> instance containing the event data.</param>
         private void LogoutLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            this.Close();
-            DialogResult = DialogResult.OK;
+            this.DialogResult = DialogResult.OK;
         }
     }
 }

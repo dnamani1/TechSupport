@@ -57,5 +57,16 @@ namespace TechSupport.Controller
             _incidentDAL.Add(incident);
         }
 
+        /// <summary>
+        /// Searches the incidents by customer identifier.
+        /// </summary>
+        /// <param name="customerID">The customer identifier.</param>
+        /// <returns></returns>
+        public List<Incident> SearchIncidentsByCustomerID(int customerID)
+        {    
+            return _incidentDAL.SearchIncidentsByCustomerID(customerID);
+        }
+
+
     }
 }
