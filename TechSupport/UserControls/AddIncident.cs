@@ -32,6 +32,7 @@ namespace TechSupport.UserControls
         private void TitleTextBox_TextChanged(object sender, EventArgs e)
         {
             titleErrorLabel.Visible = false;
+            customerErrorLabel.Visible = false;
         }
 
         /// <summary>
@@ -70,6 +71,7 @@ namespace TechSupport.UserControls
                 titleErrorLabel.ForeColor = Color.Red;
                 titleErrorLabel.Visible = true;
             }
+
 
             if (string.IsNullOrEmpty(description))
             {

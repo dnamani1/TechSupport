@@ -40,7 +40,7 @@
             this.incidentDataGridView.Name = "incidentDataGridView";
             this.incidentDataGridView.RowHeadersWidth = 62;
             this.incidentDataGridView.RowTemplate.Height = 28;
-            this.incidentDataGridView.Size = new System.Drawing.Size(845, 500);
+            this.incidentDataGridView.Size = new System.Drawing.Size(796, 397);
             this.incidentDataGridView.TabIndex = 1;
             // 
             // DisplayIncident
@@ -49,7 +49,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.incidentDataGridView);
             this.Name = "DisplayIncident";
-            this.Size = new System.Drawing.Size(845, 500);
+            this.Size = new System.Drawing.Size(796, 397);
             ((System.ComponentModel.ISupportInitialize)(this.incidentDataGridView)).EndInit();
             this.ResumeLayout(false);
 

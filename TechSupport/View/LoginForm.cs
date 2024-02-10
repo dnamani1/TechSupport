@@ -64,7 +64,7 @@ namespace TechSupport.View
         {
 
             this.Hide();
-            var mainForm = new MainForm();
+            var mainForm = new MainDashboard();
             var dialogResult = mainForm.ShowDialog();
 
             if (dialogResult == DialogResult.OK)

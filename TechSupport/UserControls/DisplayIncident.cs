@@ -9,7 +9,7 @@ namespace TechSupport.UserControls
     /// <seealso cref="System.Windows.Forms.UserControl" />
     public partial class DisplayIncident : UserControl
     {
-        private readonly IncidentController controller;
+        private IncidentController controller;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="DisplayIncident"/> class.
@@ -23,11 +23,21 @@ namespace TechSupport.UserControls
         /// <summary>
         /// Refreshes the incidents data grid.
         /// </summary>
-        private void RefreshIncidentsDataGrid()
+        public bool RefreshIncidentsDataGrid()
         {
-            incidentDataGridView.DataSource = null;
-            incidentDataGridView.DataSource = controller.GetIncidents();
-            incidentDataGridView.Refresh();
+            if(controller.GetIncidents().Count == 0)
+            {
+                incidentDataGridView.Visible = false;
+                return false;
+            } else
+            {
+                incidentDataGridView.Visible = true;
+                incidentDataGridView.DataSource = null;
+                incidentDataGridView.DataSource = controller.GetIncidents();
+                incidentDataGridView.Refresh();
+                return true;
+            }
+           
         }
     }
 }

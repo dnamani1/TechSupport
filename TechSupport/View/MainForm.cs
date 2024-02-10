@@ -10,7 +10,7 @@ namespace TechSupport.View
     /// <seealso cref="System.Windows.Forms.Form" />
     public partial class MainForm : Form
     {
-        private IncidentController _incidentController;
+        private readonly IncidentController _incidentController;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="MainForm"/> class.

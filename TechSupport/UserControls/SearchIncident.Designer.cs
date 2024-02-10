@@ -48,7 +48,7 @@
             // 
             // searchCustomerIDTextBox
             // 
-            this.searchCustomerIDTextBox.Location = new System.Drawing.Point(327, 122);
+            this.searchCustomerIDTextBox.Location = new System.Drawing.Point(312, 122);
             this.searchCustomerIDTextBox.Name = "searchCustomerIDTextBox";
             this.searchCustomerIDTextBox.Size = new System.Drawing.Size(211, 26);
             this.searchCustomerIDTextBox.TabIndex = 1;
@@ -68,7 +68,7 @@
             // searchDataGridView
             // 
             this.searchDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.searchDataGridView.Location = new System.Drawing.Point(77, 244);
+            this.searchDataGridView.Location = new System.Drawing.Point(79, 216);
             this.searchDataGridView.Name = "searchDataGridView";
             this.searchDataGridView.RowHeadersWidth = 62;
             this.searchDataGridView.RowTemplate.Height = 28;
@@ -78,11 +78,10 @@
             // searchCustomerIDErrorLabel
             // 
             this.searchCustomerIDErrorLabel.AutoSize = true;
-            this.searchCustomerIDErrorLabel.Location = new System.Drawing.Point(417, 155);
+            this.searchCustomerIDErrorLabel.Location = new System.Drawing.Point(385, 163);
             this.searchCustomerIDErrorLabel.Name = "searchCustomerIDErrorLabel";
-            this.searchCustomerIDErrorLabel.Size = new System.Drawing.Size(42, 20);
+            this.searchCustomerIDErrorLabel.Size = new System.Drawing.Size(0, 20);
             this.searchCustomerIDErrorLabel.TabIndex = 4;
-            this.searchCustomerIDErrorLabel.Text = "error";
             // 
             // SearchIncident
             // 

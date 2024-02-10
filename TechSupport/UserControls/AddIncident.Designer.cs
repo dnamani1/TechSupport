@@ -46,7 +46,7 @@
             // 
             this.addIncidentLabel.AutoSize = true;
             this.addIncidentLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addIncidentLabel.Location = new System.Drawing.Point(326, 37);
+            this.addIncidentLabel.Location = new System.Drawing.Point(249, 26);
             this.addIncidentLabel.Name = "addIncidentLabel";
             this.addIncidentLabel.Size = new System.Drawing.Size(205, 25);
             this.addIncidentLabel.TabIndex = 0;
@@ -56,7 +56,7 @@
             // 
             this.titleLabel.AutoSize = true;
             this.titleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.titleLabel.Location = new System.Drawing.Point(230, 108);
+            this.titleLabel.Location = new System.Drawing.Point(176, 83);
             this.titleLabel.Name = "titleLabel";
             this.titleLabel.Size = new System.Drawing.Size(58, 20);
             this.titleLabel.TabIndex = 1;
@@ -64,7 +64,7 @@
             // 
             // titleTextBox
             // 
-            this.titleTextBox.Location = new System.Drawing.Point(400, 105);
+            this.titleTextBox.Location = new System.Drawing.Point(400, 80);
             this.titleTextBox.Name = "titleTextBox";
             this.titleTextBox.Size = new System.Drawing.Size(208, 26);
             this.titleTextBox.TabIndex = 2;
@@ -74,7 +74,7 @@
             // 
             this.descriptionLabel.AutoSize = true;
             this.descriptionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.descriptionLabel.Location = new System.Drawing.Point(234, 165);
+            this.descriptionLabel.Location = new System.Drawing.Point(176, 144);
             this.descriptionLabel.Name = "descriptionLabel";
             this.descriptionLabel.Size = new System.Drawing.Size(115, 20);
             this.descriptionLabel.TabIndex = 3;
@@ -82,7 +82,7 @@
             // 
             // descriptionTextBox
             // 
-            this.descriptionTextBox.Location = new System.Drawing.Point(400, 162);
+            this.descriptionTextBox.Location = new System.Drawing.Point(400, 144);
             this.descriptionTextBox.Multiline = true;
             this.descriptionTextBox.Name = "descriptionTextBox";
             this.descriptionTextBox.Size = new System.Drawing.Size(208, 82);
@@ -93,7 +93,7 @@
             // 
             this.customerIDLabel.AutoSize = true;
             this.customerIDLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.customerIDLabel.Location = new System.Drawing.Point(234, 274);
+            this.customerIDLabel.Location = new System.Drawing.Point(176, 269);
             this.customerIDLabel.Name = "customerIDLabel";
             this.customerIDLabel.Size = new System.Drawing.Size(115, 20);
             this.customerIDLabel.TabIndex = 5;
@@ -101,7 +101,7 @@
             // 
             // customerIDTextBox
             // 
-            this.customerIDTextBox.Location = new System.Drawing.Point(400, 274);
+            this.customerIDTextBox.Location = new System.Drawing.Point(400, 266);
             this.customerIDTextBox.Name = "customerIDTextBox";
             this.customerIDTextBox.Size = new System.Drawing.Size(208, 26);
             this.customerIDTextBox.TabIndex = 6;
@@ -110,7 +110,7 @@
             // addIncidentButton
             // 
             this.addIncidentButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addIncidentButton.Location = new System.Drawing.Point(282, 377);
+            this.addIncidentButton.Location = new System.Drawing.Point(211, 343);
             this.addIncidentButton.Name = "addIncidentButton";
             this.addIncidentButton.Size = new System.Drawing.Size(127, 35);
             this.addIncidentButton.TabIndex = 7;
@@ -121,7 +121,7 @@
             // cancelButton
             // 
             this.cancelButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cancelButton.Location = new System.Drawing.Point(457, 377);
+            this.cancelButton.Location = new System.Drawing.Point(434, 343);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(113, 35);
             this.cancelButton.TabIndex = 9;
@@ -132,29 +132,26 @@
             // titleErrorLabel
             // 
             this.titleErrorLabel.AutoSize = true;
-            this.titleErrorLabel.Location = new System.Drawing.Point(464, 134);
+            this.titleErrorLabel.Location = new System.Drawing.Point(439, 121);
             this.titleErrorLabel.Name = "titleErrorLabel";
-            this.titleErrorLabel.Size = new System.Drawing.Size(67, 20);
+            this.titleErrorLabel.Size = new System.Drawing.Size(0, 20);
             this.titleErrorLabel.TabIndex = 10;
-            this.titleErrorLabel.Text = "titleerror";
             // 
             // descriptionErrorLabel
             // 
             this.descriptionErrorLabel.AutoSize = true;
-            this.descriptionErrorLabel.Location = new System.Drawing.Point(464, 251);
+            this.descriptionErrorLabel.Location = new System.Drawing.Point(430, 243);
             this.descriptionErrorLabel.Name = "descriptionErrorLabel";
-            this.descriptionErrorLabel.Size = new System.Drawing.Size(76, 20);
+            this.descriptionErrorLabel.Size = new System.Drawing.Size(0, 20);
             this.descriptionErrorLabel.TabIndex = 11;
-            this.descriptionErrorLabel.Text = "descerror";
             // 
             // customerErrorLabel
             // 
             this.customerErrorLabel.AutoSize = true;
-            this.customerErrorLabel.Location = new System.Drawing.Point(468, 303);
+            this.customerErrorLabel.Location = new System.Drawing.Point(316, 298);
             this.customerErrorLabel.Name = "customerErrorLabel";
-            this.customerErrorLabel.Size = new System.Drawing.Size(72, 20);
+            this.customerErrorLabel.Size = new System.Drawing.Size(0, 20);
             this.customerErrorLabel.TabIndex = 12;
-            this.customerErrorLabel.Text = "custerror";
             // 
             // AddIncident
             // 
@@ -173,7 +170,7 @@
             this.Controls.Add(this.titleLabel);
             this.Controls.Add(this.addIncidentLabel);
             this.Name = "AddIncident";
-            this.Size = new System.Drawing.Size(845, 500);
+            this.Size = new System.Drawing.Size(796, 397);
             this.ResumeLayout(false);
             this.PerformLayout();
 
