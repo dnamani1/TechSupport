@@ -63,6 +63,12 @@
     <Compile Include="UserControls\DisplayIncident.Designer.cs">
       <DependentUpon>DisplayIncident.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\SearchIncident.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\SearchIncident.Designer.cs">
+      <DependentUpon>SearchIncident.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\AddIncidentForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -108,6 +114,9 @@
     <EmbeddedResource Include="UserControls\DisplayIncident.resx">
       <DependentUpon>DisplayIncident.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\SearchIncident.resx">
+      <DependentUpon>SearchIncident.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\AddIncidentForm.resx">
       <DependentUpon>AddIncidentForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -120,6 +129,7 @@
     <EmbeddedResource Include="View\SearchIncidentForm.resx">
       <DependentUpon>SearchIncidentForm.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="ClassDiagram1.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
