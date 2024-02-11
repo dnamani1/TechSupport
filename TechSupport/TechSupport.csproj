@@ -47,7 +47,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\IncidentController.cs" />
+    <Compile Include="DAL\DBConnection.cs" />
     <Compile Include="DAL\IncidentDAL.cs" />
+    <Compile Include="DAL\IncidentDBDal.cs" />
+    <Compile Include="Model\OpenIncident.cs" />
     <Compile Include="Model\Incident.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

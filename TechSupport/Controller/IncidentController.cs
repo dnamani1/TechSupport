@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
+using System.Windows.Forms;
 using TechSupport.DAL;
 using TechSupport.Model;
+using TechSupport.UserControls;
 
 namespace TechSupport.Controller
 {
@@ -9,9 +11,10 @@ namespace TechSupport.Controller
     /// </summary>
     public class IncidentController
     {
-        private IncidentDAL _incidentDAL;
-        private string _username = "jane";
-        private string _password = "test1234";
+        private readonly IncidentDAL _incidentDAL;
+        private readonly string _username = "jane";
+        private readonly string _password = "test1234";
+        private readonly IncidentDBDal _incidentDBDal;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="IncidentController"/> class.
@@ -19,6 +22,7 @@ namespace TechSupport.Controller
         public IncidentController() 
         {
             _incidentDAL = new IncidentDAL();
+            _incidentDBDal = new IncidentDBDal();
         }
 
         /// <summary>
@@ -67,6 +71,13 @@ namespace TechSupport.Controller
             return _incidentDAL.SearchIncidentsByCustomerID(customerID);
         }
 
-
+        /// <summary>
+        /// Gets the display open incidents.
+        /// </summary>
+        /// <returns></returns>
+        public List<OpenIncident> GetDisplayOpenIncidents()
+        {
+            return _incidentDBDal.GetDisplayOpenIncidents();
+        }
     }
 }
