@@ -38,6 +38,7 @@ namespace TechSupport.View
             this.displayIncidentUserControls = new TechSupport.UserControls.DisplayIncident();
             this.searchIncidentTabPage = new System.Windows.Forms.TabPage();
             this.searchIncidentUserControls = new TechSupport.UserControls.SearchIncident();
+            this.displayOpenIncidentsTabPage = new System.Windows.Forms.TabPage();
             this.userLabel = new System.Windows.Forms.Label();
             this.logoutLinkLabel = new System.Windows.Forms.LinkLabel();
             this.mainDashBoardTabControl.SuspendLayout();
@@ -51,6 +52,7 @@ namespace TechSupport.View
             this.mainDashBoardTabControl.Controls.Add(this.addIncidentTabPage);
             this.mainDashBoardTabControl.Controls.Add(this.displayIncidentTabPage);
             this.mainDashBoardTabControl.Controls.Add(this.searchIncidentTabPage);
+            this.mainDashBoardTabControl.Controls.Add(this.displayOpenIncidentsTabPage);
             this.mainDashBoardTabControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mainDashBoardTabControl.Location = new System.Drawing.Point(1, 10);
             this.mainDashBoardTabControl.Name = "mainDashBoardTabControl";
@@ -87,18 +89,17 @@ namespace TechSupport.View
             this.displayIncidentTabPage.Padding = new System.Windows.Forms.Padding(3);
             this.displayIncidentTabPage.Size = new System.Drawing.Size(819, 431);
             this.displayIncidentTabPage.TabIndex = 1;
-            this.displayIncidentTabPage.Text = "Display Incident";
+            this.displayIncidentTabPage.Text = "Display All Incident";
             this.displayIncidentTabPage.UseVisualStyleBackColor = true;
             // 
             // displayMessageLabel
             // 
             this.displayMessageLabel.AutoSize = true;
             this.displayMessageLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.displayMessageLabel.Location = new System.Drawing.Point(605, 47);
+            this.displayMessageLabel.Location = new System.Drawing.Point(538, 98);
             this.displayMessageLabel.Name = "displayMessageLabel";
-            this.displayMessageLabel.Size = new System.Drawing.Size(168, 25);
+            this.displayMessageLabel.Size = new System.Drawing.Size(0, 25);
             this.displayMessageLabel.TabIndex = 1;
-            this.displayMessageLabel.Text = "displayMessage";
             // 
             // displayIncidentUserControls
             // 
@@ -120,10 +121,20 @@ namespace TechSupport.View
             // 
             // searchIncidentUserControls
             // 
-            this.searchIncidentUserControls.Location = new System.Drawing.Point(-65, -45);
+            this.searchIncidentUserControls.Location = new System.Drawing.Point(-16, -29);
             this.searchIncidentUserControls.Name = "searchIncidentUserControls";
             this.searchIncidentUserControls.Size = new System.Drawing.Size(952, 497);
             this.searchIncidentUserControls.TabIndex = 0;
+            // 
+            // displayOpenIncidentsTabPage
+            // 
+            this.displayOpenIncidentsTabPage.Location = new System.Drawing.Point(4, 29);
+            this.displayOpenIncidentsTabPage.Name = "displayOpenIncidentsTabPage";
+            this.displayOpenIncidentsTabPage.Padding = new System.Windows.Forms.Padding(3);
+            this.displayOpenIncidentsTabPage.Size = new System.Drawing.Size(819, 431);
+            this.displayOpenIncidentsTabPage.TabIndex = 4;
+            this.displayOpenIncidentsTabPage.Text = "Display Open Incidents";
+            this.displayOpenIncidentsTabPage.UseVisualStyleBackColor = true;
             // 
             // userLabel
             // 
@@ -178,5 +189,6 @@ namespace TechSupport.View
         private Label userLabel;
         private LinkLabel logoutLinkLabel;
         private Label displayMessageLabel;
+        private TabPage displayOpenIncidentsTabPage;
     }
 }
