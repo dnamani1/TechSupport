@@ -1,16 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TechSupport.Model;
-using TechSupport.UserControls;
+
 
 namespace TechSupport.DAL
 {
+    /// <summary>
+    /// Data access layer class for incidents.
+    /// Provides functionality to retrieve open incident data from the database.
+    /// </summary>
     public class IncidentDBDal
     {
+        /// <summary>
+        /// Retrieves a list of open incidents from the database.
+        /// Open incidents are defined as incidents without a closed date.
+        /// </summary>
+        /// <returns>A list of open incidents.</returns>
         public List<OpenIncident> GetDisplayOpenIncidents()
         {
             var openIncidents = new List<OpenIncident>();

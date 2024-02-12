@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Data.SqlClient;
 
 namespace TechSupport.DAL
 {
@@ -18,8 +13,10 @@ namespace TechSupport.DAL
         /// <returns></returns>
         public static SqlConnection GetConnection()
         {
-            const string connectionString = "Data source=(localdb)\\MSSQLLocalDB;Initial Catalog = TechSupport;Integrated Security = True";
+            const string connectionString = "Data source=CSDBLAB-VM17;Initial Catalog = TechSupport;Integrated Security = True";
             return new SqlConnection(connectionString);
         }
     }
 }
+
+

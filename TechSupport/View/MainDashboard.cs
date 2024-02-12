@@ -1,6 +1,5 @@
 ﻿using System.Windows.Forms;
 using TechSupport.Controller;
-using TechSupport.UserControls;
 
 namespace TechSupport.View
 {
@@ -10,7 +9,7 @@ namespace TechSupport.View
     /// <seealso cref="System.Windows.Forms.Form" />
     public partial class MainDashboard : Form
     {
-        private IncidentController incidentController;
+        private readonly IncidentController incidentController;
         /// <summary>
         /// Initializes a new instance of the <see cref="MainDashboard"/> class.
         /// </summary>
@@ -31,6 +30,11 @@ namespace TechSupport.View
             DialogResult = DialogResult.OK;
         }
 
+        /// <summary>
+        /// Displays the incident.
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
         private void DisplayIncident(object sender, System.EventArgs e)
         {
             if(mainDashBoardTabControl.SelectedTab == displayIncidentTabPage)
@@ -50,6 +54,8 @@ namespace TechSupport.View
             {
                 displayOpenIncidentUserControls.DisplayOpenIncidentsInMainDashBoard();
             }
+
+
         }
     }
 }

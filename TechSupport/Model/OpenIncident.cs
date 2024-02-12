@@ -1,11 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TechSupport.Model
 {
+    /// <summary>
+    /// Represents an open incident.
+    /// </summary>
     public class OpenIncident
     {
         public string ProductCode { get; set; }

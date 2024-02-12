@@ -1,8 +1,6 @@
 ﻿using System.Collections.Generic;
-using System.Windows.Forms;
 using TechSupport.DAL;
 using TechSupport.Model;
-using TechSupport.UserControls;
 
 namespace TechSupport.Controller
 {
