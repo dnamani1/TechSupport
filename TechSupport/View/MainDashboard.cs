@@ -1,4 +1,5 @@
-﻿using System.Windows.Forms;
+﻿using System;
+using System.Windows.Forms;
 using TechSupport.Controller;
 
 namespace TechSupport.View
@@ -52,7 +53,14 @@ namespace TechSupport.View
 
             if (mainDashBoardTabControl.SelectedTab == displayOpenIncidentsTabPage)
             {
-                displayOpenIncidentUserControls.DisplayOpenIncidentsInMainDashBoard();
+                try
+                {
+                    displayOpenIncidentUserControls.DisplayOpenIncidentsInMainDashBoard();
+                }
+                catch (Exception)
+                {
+                    dbLabel.Text = "Cannot load the database";
+                }
             }
 
 

@@ -38,6 +38,7 @@ namespace TechSupport.View
             this.displayOpenIncidentsTabPage = new System.Windows.Forms.TabPage();
             this.userLabel = new System.Windows.Forms.Label();
             this.logoutLinkLabel = new System.Windows.Forms.LinkLabel();
+            this.dbLabel = new System.Windows.Forms.Label();
             this.addIncidentUserControls = new TechSupport.UserControls.AddIncident();
             this.displayIncidentUserControls = new TechSupport.UserControls.DisplayIncident();
             this.searchIncidentUserControls = new TechSupport.UserControls.SearchIncident();
@@ -64,7 +65,7 @@ namespace TechSupport.View
             this.mainDashBoardTabControl.SelectedIndexChanged += new System.EventHandler(this.DisplayIncident);
             // 
             // addIncidentTabPage
-            //
+            // 
             this.addIncidentTabPage.Controls.Add(this.addIncidentUserControls);
             this.addIncidentTabPage.Location = new System.Drawing.Point(4, 29);
             this.addIncidentTabPage.Name = "addIncidentTabPage";
@@ -108,6 +109,7 @@ namespace TechSupport.View
             // 
             // displayOpenIncidentsTabPage
             // 
+            this.displayOpenIncidentsTabPage.Controls.Add(this.dbLabel);
             this.displayOpenIncidentsTabPage.Controls.Add(this.displayOpenIncidentUserControls);
             this.displayOpenIncidentsTabPage.Location = new System.Drawing.Point(4, 29);
             this.displayOpenIncidentsTabPage.Name = "displayOpenIncidentsTabPage";
@@ -137,6 +139,15 @@ namespace TechSupport.View
             this.logoutLinkLabel.Text = "logout";
             this.logoutLinkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LogoutLinkLabel_LinkClicked);
             // 
+            // dbLabel
+            // 
+            this.dbLabel.AutoSize = true;
+            this.dbLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dbLabel.Location = new System.Drawing.Point(359, 211);
+            this.dbLabel.Name = "dbLabel";
+            this.dbLabel.Size = new System.Drawing.Size(0, 25);
+            this.dbLabel.TabIndex = 1;
+            // 
             // addIncidentUserControls
             // 
             this.addIncidentUserControls.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -159,10 +170,10 @@ namespace TechSupport.View
             this.searchIncidentUserControls.Size = new System.Drawing.Size(952, 497);
             this.searchIncidentUserControls.TabIndex = 0;
             // 
-            // displayOpenIncident1
+            // displayOpenIncidentUserControls
             // 
             this.displayOpenIncidentUserControls.Location = new System.Drawing.Point(0, 0);
-            this.displayOpenIncidentUserControls.Name = "displayOpenIncident1";
+            this.displayOpenIncidentUserControls.Name = "displayOpenIncidentUserControls";
             this.displayOpenIncidentUserControls.Size = new System.Drawing.Size(819, 435);
             this.displayOpenIncidentUserControls.TabIndex = 0;
             // 
@@ -183,6 +194,7 @@ namespace TechSupport.View
             this.displayIncidentTabPage.PerformLayout();
             this.searchIncidentTabPage.ResumeLayout(false);
             this.displayOpenIncidentsTabPage.ResumeLayout(false);
+            this.displayOpenIncidentsTabPage.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -202,5 +214,6 @@ namespace TechSupport.View
         private Label displayMessageLabel;
         private TabPage displayOpenIncidentsTabPage;
         private UserControls.DisplayOpenIncident displayOpenIncidentUserControls;
+        private Label dbLabel;
     }
 }
