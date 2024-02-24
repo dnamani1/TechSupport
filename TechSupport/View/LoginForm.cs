@@ -64,19 +64,21 @@ namespace TechSupport.View
         {
 
             this.Hide();
-            var mainForm = new MainDashboard();
-            var dialogResult = mainForm.ShowDialog();
-
-            if (dialogResult == DialogResult.OK)
+            using (var mainForm = new MainDashboard())
             {
+                var dialogResult = mainForm.ShowDialog();
 
-                this.Show();
-                ClearCredentials();
-            }
-            else
-            {
- 
-                this.Close();
+                if (dialogResult == DialogResult.OK)
+                {
+
+                    this.Show();
+                    ClearCredentials();
+                }
+                else
+                {
+
+                    this.Close();
+                }
             }
         }
 

@@ -19,32 +19,50 @@ namespace TechSupport.DAL
         public List<OpenIncident> GetDisplayOpenIncidents()
         {
             var openIncidents = new List<OpenIncident>();
-            var connection = DBConnection.GetConnection();
-            connection.Open();
-            const string query = "select Incidents.ProductCode,Incidents.DateOpened,Customers.Name as customerName,Technicians.Name,Incidents.Title from Incidents,Technicians,Customers where Incidents.CustomerID = Customers.CustomerID and Incidents.TechID = Technicians.TechID and Incidents.DateClosed is null";
-            var command = new SqlCommand(query, connection);
-            var reader = command.ExecuteReader();
-            var productCodeOrdinal = reader.GetOrdinal("ProductCode");
-            var dateOpenedOrdinal = reader.GetOrdinal("DateOpened");
-            var customersNameOrdinal = reader.GetOrdinal("customerName");
-            var techniciansNameOrdinal = reader.GetOrdinal("Name");
-            var titleOrdinal = reader.GetOrdinal("Title");
-            while (reader.Read())
+            using (var connection = DBConnection.GetConnection())
             {
-                var productCode = reader.GetString(productCodeOrdinal);
-                var dateOpened = reader.GetDateTime(dateOpenedOrdinal);
-                var customersName = reader.GetString(customersNameOrdinal);
-                var technicians = reader.GetString(techniciansNameOrdinal);
-                var title = reader.GetString(titleOrdinal);
+                connection.Open();
+                const string query = @"
+            SELECT 
+                Incidents.ProductCode, 
+                Incidents.DateOpened, 
+                Customers.Name AS CustomerName, 
+                ISNULL(Technicians.Name, 'Not Assigned') AS TechnicianName, 
+                Incidents.Title 
+            FROM 
+                Incidents 
+                JOIN Customers ON Incidents.CustomerID = Customers.CustomerID 
+                LEFT JOIN Technicians ON Incidents.TechID = Technicians.TechID 
+            WHERE 
+                Incidents.DateClosed IS NULL";
 
-                openIncidents.Add(new OpenIncident
+                using (var command = new SqlCommand(query, connection))
+                using (var reader = command.ExecuteReader())
                 {
-                    ProductCode = productCode,
-                    DateOpened = dateOpened,
-                    CustomerName = customersName,
-                    TechnicianName = technicians,
-                    Title = title
-                });
+                    var productCodeOrdinal = reader.GetOrdinal("ProductCode");
+                    var dateOpenedOrdinal = reader.GetOrdinal("DateOpened");
+                    var customerNameOrdinal = reader.GetOrdinal("CustomerName");
+                    var technicianNameOrdinal = reader.GetOrdinal("TechnicianName");
+                    var titleOrdinal = reader.GetOrdinal("Title");
+
+                    while (reader.Read())
+                    {
+                        var productCode = reader.GetString(productCodeOrdinal);
+                        var dateOpened = reader.GetDateTime(dateOpenedOrdinal);
+                        var customerName = reader.GetString(customerNameOrdinal);
+                        var technicianName = reader.GetString(technicianNameOrdinal); 
+                        var title = reader.GetString(titleOrdinal);
+
+                        openIncidents.Add(new OpenIncident
+                        {
+                            ProductCode = productCode,
+                            DateOpened = dateOpened,
+                            CustomerName = customerName,
+                            TechnicianName = technicianName,
+                            Title = title
+                        });
+                    }
+                }
             }
             return openIncidents;
         }
