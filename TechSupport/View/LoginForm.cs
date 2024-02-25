@@ -10,6 +10,7 @@ namespace TechSupport.View
     /// </summary>
     public partial class LoginForm : Form
     {
+        private readonly IncidentController incidentController;
 
         /// <summary>
         /// Initializes a new instance of the LoginForm class.
@@ -17,6 +18,7 @@ namespace TechSupport.View
         public LoginForm()
         {
             InitializeComponent();
+            incidentController = new IncidentController();
 
         }
 
@@ -29,8 +31,7 @@ namespace TechSupport.View
         {
             errorMessageLabel.Visible = false;
 
-            IncidentController incidentController = new IncidentController();
-            {
+           
                 var username = incidentController.GetUsername();
                 var password = incidentController.GetPassword();
 
@@ -44,7 +45,7 @@ namespace TechSupport.View
                 {
                     HandleInvalidLogin();
                 }
-            }
+            
         }
         /// <summary>
         /// Validates the credentials entered by the user.

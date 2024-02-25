@@ -56,27 +56,27 @@
             // productCodeColumnHeader
             // 
             this.productCodeColumnHeader.Text = "Product Code";
-            this.productCodeColumnHeader.Width = 160;
+            this.productCodeColumnHeader.Width = 110;
             // 
             // dateOpenedColumnHeader
             // 
             this.dateOpenedColumnHeader.Text = "Date Opened";
-            this.dateOpenedColumnHeader.Width = 160;
+            this.dateOpenedColumnHeader.Width = 110;
             // 
             // customerColumnHeader
             // 
             this.customerColumnHeader.Text = "Customer";
-            this.customerColumnHeader.Width = 160;
+            this.customerColumnHeader.Width = 110;
             // 
             // technicianColumnHeader
             // 
             this.technicianColumnHeader.Text = "Technician";
-            this.technicianColumnHeader.Width = 160;
+            this.technicianColumnHeader.Width = 110;
             // 
             // titleColumnHeader
             // 
             this.titleColumnHeader.Text = "Title";
-            this.titleColumnHeader.Width = 160;
+            this.titleColumnHeader.Width = 110;
             // 
             // DisplayOpenIncident
             // 

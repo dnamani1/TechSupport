@@ -82,6 +82,8 @@ namespace TechSupport.UserControls
         {
             string title = titleTextBox.Text;
             string description = descriptionTextBox.Text;
+            string customerName = customerComboBox.SelectedItem.ToString();
+            string productName = productComboBox.SelectedItem.ToString();
 
             if (string.IsNullOrEmpty(title))
             {
@@ -98,6 +100,23 @@ namespace TechSupport.UserControls
                 descriptionErrorLabel.Visible = true;
             }
 
+            if (controller.IsCustomerRegistered(customerName, productName))
+            {
+                controller.AddIncident(customerName, productName, title, description);
+                customerErrorLabel.Text = "Incident added sucessfully!";
+                customerErrorLabel.ForeColor = Color.Green;
+                customerErrorLabel.Visible = true;
+                ClearFields();
+            } 
+            else
+            {
+                customerErrorLabel.Text = "Selected Customer is not registered with the Product!";
+                customerErrorLabel.ForeColor = Color.Red;
+                customerErrorLabel.Visible = true;
+
+            }
+
+
         }
 
         /// <summary>
@@ -107,8 +126,19 @@ namespace TechSupport.UserControls
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void CancelButton_Click(object sender, EventArgs e)
         {
+            ClearFields();
+        }
+
+        /// <summary>
+        /// Clears the fields.
+        /// </summary>
+        private void ClearFields()
+        {
             titleTextBox.Clear();
             descriptionTextBox.Clear();
+            customerComboBox.SelectedIndex = 0;
+            productComboBox.SelectedIndex = 0;
         }
+
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data.SqlClient;
 using TechSupport.Model;
 
@@ -111,6 +112,95 @@ namespace TechSupport.DAL
 
             }
             return products;
+        }
+
+        //
+        public bool IsCustomerRegistered(string customerName, string productName)
+        {
+            bool isRegistered = false;
+            using (var connection = DBConnection.GetConnection())
+            {
+                connection.Open();
+                const string query = @"
+                                    SELECT COUNT(*) 
+                                    FROM registrations 
+                                    JOIN customers ON registrations.CustomerID = customers.CustomerID 
+                                    JOIN products ON registrations.ProductCode = products.ProductCode 
+                                    WHERE customers.Name = @customerName AND products.Name = @productName";
+
+                using (var command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@customerName", customerName);
+                    command.Parameters.AddWithValue("@productName", productName);
+
+                    int count = (int)command.ExecuteScalar();
+                    isRegistered = count > 0;
+                }
+            }
+            return isRegistered;
+        }
+
+        /// <summary>
+        /// Adds the incident.
+        /// </summary>
+        /// <param name="customerName">Name of the customer.</param>
+        /// <param name="productName">Name of the product.</param>
+        /// <param name="title">The title.</param>
+        /// <param name="description">The description.</param>
+        public void AddIncident(string customerName, string productName, string title, string description)
+        {
+            int customerID = 0;
+            string productCode = string.Empty;
+
+            using (var connection = DBConnection.GetConnection())
+            {
+                connection.Open();
+
+                const string customerQuery = "SELECT CustomerID FROM Customers WHERE Name = @customerName";
+                using (var customerCommand = new SqlCommand(customerQuery, connection))
+                {
+                    customerCommand.Parameters.AddWithValue("@customerName", customerName);
+
+                    using (var reader = customerCommand.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            int customerIDOrdinal = reader.GetOrdinal("CustomerID");
+                            customerID = reader.GetInt32(customerIDOrdinal);
+                        }
+                    }
+                }
+
+                const string productQuery = "SELECT ProductCode FROM Products WHERE Name = @productName";
+                using (var productCommand = new SqlCommand(productQuery, connection))
+                {
+                    productCommand.Parameters.AddWithValue("@productName", productName);
+
+                    using (var reader = productCommand.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            int productCodeOrdinal = reader.GetOrdinal("ProductCode");
+                            productCode = reader.GetString(productCodeOrdinal);
+                        }
+                    }
+                }
+
+                const string insertQuery = @"
+                                           INSERT INTO Incidents (CustomerID, ProductCode, DateOpened, Title, Description)
+                                           VALUES (@customerID, @productCode, @dateOpened, @title, @description)";
+
+                using (var insertCommand = new SqlCommand(insertQuery, connection))
+                {
+                    insertCommand.Parameters.AddWithValue("@customerID", customerID);
+                    insertCommand.Parameters.AddWithValue("@productCode", productCode);
+                    insertCommand.Parameters.AddWithValue("@dateOpened", DateTime.Now);
+                    insertCommand.Parameters.AddWithValue("@title", title);
+                    insertCommand.Parameters.AddWithValue("@description", description);
+
+                    insertCommand.ExecuteNonQuery();
+                }
+            }
         }
 
     }
