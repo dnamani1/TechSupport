@@ -46,16 +46,6 @@ namespace TechSupport.UserControls
         }
 
         /// <summary>
-        /// Handles the TextChanged event of the CustomerIDTextBox control.
-        /// </summary>
-        /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        private void CustomerIDTextBox_TextChanged(object sender, EventArgs e)
-        {
-            customerErrorLabel.Visible = false;
-        }
-
-        /// <summary>
         /// Handles the Click event of the AddIncidentButton control.
         /// </summary>
         /// <param name="sender">The source of the event.</param>
@@ -80,41 +70,6 @@ namespace TechSupport.UserControls
                 descriptionErrorLabel.Visible = true;
             }
 
-            try
-            {
-                int customerID = Convert.ToInt32(customerIDTextBox.Text);
-                var incident = new Incident
-                {
-                    Title = title,
-                    Description = description,
-                    CustomerID = customerID
-                };
-                controller.Add(incident);
-                titleTextBox.Clear();
-                descriptionTextBox.Clear();
-                customerIDTextBox.Clear();
-                customerErrorLabel.Visible = true;
-                customerErrorLabel.ForeColor = Color.Green;
-                customerErrorLabel.Text = "Incident added sucessfully!";
-            }
-            catch (FormatException)
-            {
-                customerErrorLabel.Text = "CustomerID must be numbers";
-                customerErrorLabel.ForeColor = Color.Red;
-                customerErrorLabel.Visible = true;
-            }
-            catch (ArgumentException aExp)
-            {
-                customerErrorLabel.Text = aExp.Message;
-                customerErrorLabel.ForeColor = Color.Red;
-                customerErrorLabel.Visible = true;
-            }
-            catch (OverflowException)
-            {
-                customerErrorLabel.Text = "CustomerID is out of range";
-                customerErrorLabel.ForeColor = Color.Red;
-                customerErrorLabel.Visible = true;
-            }
         }
 
         /// <summary>
@@ -126,7 +81,6 @@ namespace TechSupport.UserControls
         {
             titleTextBox.Clear();
             descriptionTextBox.Clear();
-            customerIDTextBox.Clear();
         }
     }
 }
