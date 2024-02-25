@@ -67,5 +67,51 @@ namespace TechSupport.DAL
             return openIncidents;
         }
 
+        /// <summary>
+        /// Gets the name of the customer.
+        /// </summary>
+        /// <returns></returns>
+        public List<string> GetCustomerNames()
+        {
+            var customers = new List<string>();
+            using (var connection = DBConnection.GetConnection())
+            {
+                connection.Open();
+                const string query = "SELECT Name FROM Customers";
+                using (var command = new SqlCommand(query, connection))
+                using (var reader = command.ExecuteReader())
+                {
+                    var nameOrdinal = reader.GetOrdinal("Name");
+                    while (reader.Read())
+                    {
+                        var customerName = reader.GetString(nameOrdinal); 
+                        customers.Add(customerName);
+                    }
+                }
+            }
+            return customers;
+        }
+
+        public List<string> GetProductNames()
+        {
+            var products = new List<string>();
+            using (var connection = DBConnection.GetConnection())
+            {
+                connection.Open();
+                const string query = "SELECT Name FROM Products";
+                using (var command = new SqlCommand(query, connection))
+                using (var reader = command.ExecuteReader())
+                {
+                    var nameOrdinal = reader.GetOrdinal("Name");
+                    while (reader.Read()) {
+                        var productName = reader.GetString(nameOrdinal);
+                        products.Add(productName);
+                    }
+                }
+
+            }
+            return products;
+        }
+
     }
 }

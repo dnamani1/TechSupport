@@ -77,5 +77,23 @@ namespace TechSupport.Controller
         {
             return _incidentDBDal.GetDisplayOpenIncidents();
         }
+
+        /// <summary>
+        /// Gets the customer names.
+        /// </summary>
+        /// <returns></returns>
+        public List<string> GetCustomerNames()
+        {
+            return _incidentDBDal.GetCustomerNames();
+        }
+
+        /// <summary>
+        /// Gets the product names.
+        /// </summary>
+        /// <returns></returns>
+        public List<string> GetProductNames()
+        {
+            return _incidentDBDal.GetProductNames();
+        }
     }
 }

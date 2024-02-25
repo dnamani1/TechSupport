@@ -22,6 +22,34 @@ namespace TechSupport.UserControls
         {
             InitializeComponent();
             controller = new IncidentController();
+            PopulateCustomerComboBox();
+            PopulateProductComboBox();
+        }
+
+        /// <summary>
+        /// Populates the customer ComboBox.
+        /// </summary>
+        private void PopulateCustomerComboBox()
+        {
+            var customers = controller.GetCustomerNames();
+            foreach (var customer in customers)
+            {
+                customerComboBox.Items.Add(customer);
+            }
+            if (customerComboBox.Items.Count > 0) customerComboBox.SelectedIndex = 0;
+        }
+
+        /// <summary>
+        /// Populates the product ComboBox.
+        /// </summary>
+        private void PopulateProductComboBox()
+        {
+            var products = controller.GetProductNames();
+            foreach (var product in products)
+            {
+                productComboBox.Items.Add(product);
+            }
+            if (productComboBox.Items.Count > 0) productComboBox.SelectedIndex = 0;
         }
 
         /// <summary>
