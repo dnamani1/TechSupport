@@ -116,7 +116,7 @@
             // titleErrorLabel
             // 
             this.titleErrorLabel.AutoSize = true;
-            this.titleErrorLabel.Location = new System.Drawing.Point(452, 288);
+            this.titleErrorLabel.Location = new System.Drawing.Point(396, 287);
             this.titleErrorLabel.Name = "titleErrorLabel";
             this.titleErrorLabel.Size = new System.Drawing.Size(108, 20);
             this.titleErrorLabel.TabIndex = 10;
@@ -125,7 +125,7 @@
             // descriptionErrorLabel
             // 
             this.descriptionErrorLabel.AutoSize = true;
-            this.descriptionErrorLabel.Location = new System.Drawing.Point(426, 421);
+            this.descriptionErrorLabel.Location = new System.Drawing.Point(396, 421);
             this.descriptionErrorLabel.Name = "descriptionErrorLabel";
             this.descriptionErrorLabel.Size = new System.Drawing.Size(160, 20);
             this.descriptionErrorLabel.TabIndex = 11;
@@ -172,7 +172,7 @@
             // customerErrorLabel
             // 
             this.customerErrorLabel.AutoSize = true;
-            this.customerErrorLabel.Location = new System.Drawing.Point(305, 538);
+            this.customerErrorLabel.Location = new System.Drawing.Point(235, 535);
             this.customerErrorLabel.Name = "customerErrorLabel";
             this.customerErrorLabel.Size = new System.Drawing.Size(149, 20);
             this.customerErrorLabel.TabIndex = 16;

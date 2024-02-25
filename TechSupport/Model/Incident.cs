@@ -9,7 +9,7 @@ namespace TechSupport.Model
     {
         private string _title;
         private string _description;
-        private int _customerID;
+
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Incident"/> class.
@@ -58,26 +58,6 @@ namespace TechSupport.Model
                     throw new Exception("Description cannot be null or empty.");
                 }
                 _description = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets the customer ID associated with the incident.
-        /// </summary>
-        /// <exception cref="Exception">Thrown when the provided customer ID is less than or equal to zero.</exception>
-        public int CustomerID
-        {
-            get
-            {
-                return _customerID;
-            }
-            set
-            {
-                if (value <= 0)
-                {
-                    throw new Exception("CustomerID cannot be null or empty.");
-                }
-                _customerID = value;
             }
         }
 

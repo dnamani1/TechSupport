@@ -60,29 +60,11 @@
     <Compile Include="UserControls\AddIncident.Designer.cs">
       <DependentUpon>AddIncident.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\DisplayIncident.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UserControls\DisplayIncident.Designer.cs">
-      <DependentUpon>DisplayIncident.cs</DependentUpon>
-    </Compile>
     <Compile Include="UserControls\DisplayOpenIncident.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="UserControls\DisplayOpenIncident.Designer.cs">
       <DependentUpon>DisplayOpenIncident.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UserControls\SearchIncident.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UserControls\SearchIncident.Designer.cs">
-      <DependentUpon>SearchIncident.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\AddIncidentForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\AddIncidentForm.Designer.cs">
-      <DependentUpon>AddIncidentForm.cs</DependentUpon>
     </Compile>
     <Compile Include="View\LoginForm.cs">
       <SubType>Form</SubType>
@@ -96,18 +78,6 @@
     <Compile Include="View\MainDashboard.Designer.cs">
       <DependentUpon>MainDashboard.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\MainForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\MainForm.Designer.cs">
-      <DependentUpon>MainForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\SearchIncidentForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\SearchIncidentForm.Designer.cs">
-      <DependentUpon>SearchIncidentForm.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -120,29 +90,14 @@
     <EmbeddedResource Include="UserControls\AddIncident.resx">
       <DependentUpon>AddIncident.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\DisplayIncident.resx">
-      <DependentUpon>DisplayIncident.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="UserControls\DisplayOpenIncident.resx">
       <DependentUpon>DisplayOpenIncident.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\SearchIncident.resx">
-      <DependentUpon>SearchIncident.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\AddIncidentForm.resx">
-      <DependentUpon>AddIncidentForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\MainDashboard.resx">
       <DependentUpon>MainDashboard.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\MainForm.resx">
-      <DependentUpon>MainForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\SearchIncidentForm.resx">
-      <DependentUpon>SearchIncidentForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

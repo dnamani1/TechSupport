@@ -61,16 +61,6 @@ namespace TechSupport.Controller
         }
 
         /// <summary>
-        /// Searches the incidents by customer identifier.
-        /// </summary>
-        /// <param name="customerID">The customer identifier.</param>
-        /// <returns></returns>
-        public List<Incident> SearchIncidentsByCustomerID(int customerID)
-        {    
-            return _incidentDAL.SearchIncidentsByCustomerID(customerID);
-        }
-
-        /// <summary>
         /// Gets the display open incidents.
         /// </summary>
         /// <returns></returns>
@@ -110,6 +100,13 @@ namespace TechSupport.Controller
             return _incidentDBDal.IsCustomerRegistered(customerName, productName);  
         }
 
+        /// <summary>
+        /// Adds the incident.
+        /// </summary>
+        /// <param name="customerName">Name of the customer.</param>
+        /// <param name="productName">Name of the product.</param>
+        /// <param name="title">The title.</param>
+        /// <param name="description">The description.</param>
         public void AddIncident(string customerName, string productName, string title, string description)
         {
             _incidentDBDal.AddIncident(customerName, productName, title, description);

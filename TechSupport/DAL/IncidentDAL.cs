@@ -32,14 +32,5 @@ namespace TechSupport.DAL
             return _incidents;
         }
 
-        /// <summary>
-        /// Searches the incidents by customer identifier.
-        /// </summary>
-        /// <param name="customerID">The customer identifier.</param>
-        /// <returns></returns>
-        public List<Incident> SearchIncidentsByCustomerID(int customerID)
-        {
-            return _incidents.FindAll(incident => incident.CustomerID == customerID);
-        }
     }
 }
