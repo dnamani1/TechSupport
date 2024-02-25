@@ -21,6 +21,8 @@ namespace TechSupport.View
             userLabel.Text = incidentController.GetUsername();
         }
 
+        
+
         /// <summary>
         /// Handles the LinkClicked event of the LogoutLinkLabel control.
         /// </summary>
@@ -31,5 +33,19 @@ namespace TechSupport.View
             DialogResult = DialogResult.OK;
         }
 
+        private void MainDashBoardTabControl_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (mainDashBoardTabControl.SelectedTab == displayOpenIncidentsTabPage)
+            {
+                try
+                {
+                    displayOpenIncidentUserControls.DisplayOpenIncidentsInMainDashBoard();
+                }
+                catch
+                {
+                    dbLabel.Text = "Cannot load the database";
+                }
+            }
+        }
     }
 }

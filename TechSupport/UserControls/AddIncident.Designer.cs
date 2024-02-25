@@ -96,9 +96,9 @@
             this.addIncidentButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addIncidentButton.Location = new System.Drawing.Point(180, 467);
             this.addIncidentButton.Name = "addIncidentButton";
-            this.addIncidentButton.Size = new System.Drawing.Size(127, 35);
+            this.addIncidentButton.Size = new System.Drawing.Size(155, 35);
             this.addIncidentButton.TabIndex = 7;
-            this.addIncidentButton.Text = "Add Incident";
+            this.addIncidentButton.Text = "Create Incident";
             this.addIncidentButton.UseVisualStyleBackColor = true;
             this.addIncidentButton.Click += new System.EventHandler(this.AddIncidentButton_Click);
             // 
@@ -109,7 +109,7 @@
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(113, 35);
             this.cancelButton.TabIndex = 9;
-            this.cancelButton.Text = "Cancel";
+            this.cancelButton.Text = "Clear";
             this.cancelButton.UseVisualStyleBackColor = true;
             this.cancelButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
@@ -118,18 +118,16 @@
             this.titleErrorLabel.AutoSize = true;
             this.titleErrorLabel.Location = new System.Drawing.Point(396, 287);
             this.titleErrorLabel.Name = "titleErrorLabel";
-            this.titleErrorLabel.Size = new System.Drawing.Size(108, 20);
+            this.titleErrorLabel.Size = new System.Drawing.Size(0, 20);
             this.titleErrorLabel.TabIndex = 10;
-            this.titleErrorLabel.Text = "titleErrorLabel";
             // 
             // descriptionErrorLabel
             // 
             this.descriptionErrorLabel.AutoSize = true;
             this.descriptionErrorLabel.Location = new System.Drawing.Point(396, 421);
             this.descriptionErrorLabel.Name = "descriptionErrorLabel";
-            this.descriptionErrorLabel.Size = new System.Drawing.Size(160, 20);
+            this.descriptionErrorLabel.Size = new System.Drawing.Size(0, 20);
             this.descriptionErrorLabel.TabIndex = 11;
-            this.descriptionErrorLabel.Text = "descriptionErrorLabel";
             // 
             // customerLabel
             // 
@@ -172,11 +170,10 @@
             // customerErrorLabel
             // 
             this.customerErrorLabel.AutoSize = true;
-            this.customerErrorLabel.Location = new System.Drawing.Point(235, 535);
+            this.customerErrorLabel.Location = new System.Drawing.Point(288, 534);
             this.customerErrorLabel.Name = "customerErrorLabel";
-            this.customerErrorLabel.Size = new System.Drawing.Size(149, 20);
+            this.customerErrorLabel.Size = new System.Drawing.Size(0, 30);
             this.customerErrorLabel.TabIndex = 16;
-            this.customerErrorLabel.Text = "customerErrorLabel";
             // 
             // AddIncident
             // 

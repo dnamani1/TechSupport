@@ -53,7 +53,7 @@ namespace TechSupport.View
             this.mainDashBoardTabControl.SelectedIndex = 0;
             this.mainDashBoardTabControl.Size = new System.Drawing.Size(827, 616);
             this.mainDashBoardTabControl.TabIndex = 0;
-            
+            this.mainDashBoardTabControl.SelectedIndexChanged += new System.EventHandler(this.MainDashBoardTabControl_SelectedIndexChanged);
             // 
             // addIncidentTabPage
             // 
@@ -92,8 +92,9 @@ namespace TechSupport.View
             this.dbLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dbLabel.Location = new System.Drawing.Point(359, 211);
             this.dbLabel.Name = "dbLabel";
-            this.dbLabel.Size = new System.Drawing.Size(0, 25);
+            this.dbLabel.Size = new System.Drawing.Size(89, 25);
             this.dbLabel.TabIndex = 1;
+
             // 
             // displayOpenIncidentUserControls
             // 

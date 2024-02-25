@@ -85,28 +85,32 @@ namespace TechSupport.UserControls
             string customerName = customerComboBox.SelectedItem.ToString();
             string productName = productComboBox.SelectedItem.ToString();
 
-            if (string.IsNullOrEmpty(title))
+            if (string.IsNullOrEmpty(title) || string.IsNullOrEmpty(description))
             {
-                titleErrorLabel.Text = "Title cannot be null or empty.";
-                titleErrorLabel.ForeColor = Color.Red;
-                titleErrorLabel.Visible = true;
-            }
+                if (string.IsNullOrEmpty(title))
+                {
+                    titleErrorLabel.Text = "Title cannot be empty.";
+                    titleErrorLabel.ForeColor = Color.Red;
+                    titleErrorLabel.Visible = true;
+                }
 
-
-            if (string.IsNullOrEmpty(description))
-            {
-                descriptionErrorLabel.Text = "Description cannot be null or empty.";
-                descriptionErrorLabel.ForeColor = Color.Red;
-                descriptionErrorLabel.Visible = true;
+                if (string.IsNullOrEmpty(description))
+                {
+                    descriptionErrorLabel.Text = "Description cannot be empty.";
+                    descriptionErrorLabel.ForeColor = Color.Red;
+                    descriptionErrorLabel.Visible = true;
+                }
+                return;
             }
 
             if (controller.IsCustomerRegistered(customerName, productName))
             {
                 controller.AddIncident(customerName, productName, title, description);
+                ClearFields();
                 customerErrorLabel.Text = "Incident added sucessfully!";
                 customerErrorLabel.ForeColor = Color.Green;
                 customerErrorLabel.Visible = true;
-                ClearFields();
+                
             } 
             else
             {
