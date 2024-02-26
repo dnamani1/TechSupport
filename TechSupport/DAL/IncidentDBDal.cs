@@ -28,7 +28,7 @@ namespace TechSupport.DAL
                 Incidents.ProductCode, 
                 Incidents.DateOpened, 
                 Customers.Name AS CustomerName, 
-                ISNULL(Technicians.Name, 'Not Assigned') AS TechnicianName, 
+                ISNULL(Technicians.Name, '') AS TechnicianName, 
                 Incidents.Title 
             FROM 
                 Incidents 
@@ -93,6 +93,10 @@ namespace TechSupport.DAL
             return customers;
         }
 
+        /// <summary>
+        /// Gets the product names.
+        /// </summary>
+        /// <returns></returns>
         public List<string> GetProductNames()
         {
             var products = new List<string>();
@@ -114,7 +118,14 @@ namespace TechSupport.DAL
             return products;
         }
 
-        //
+        /// <summary>
+        /// Determines whether [is customer registered] [the specified customer name].
+        /// </summary>
+        /// <param name="customerName">Name of the customer.</param>
+        /// <param name="productName">Name of the product.</param>
+        /// <returns>
+        ///   <c>true</c> if [is customer registered] [the specified customer name]; otherwise, <c>false</c>.
+        /// </returns>
         public bool IsCustomerRegistered(string customerName, string productName)
         {
             bool isRegistered = false;
@@ -201,6 +212,46 @@ namespace TechSupport.DAL
                     insertCommand.ExecuteNonQuery();
                 }
             }
+        }
+
+        /// <summary>
+        /// Searches the name of the incidents by customer.
+        /// </summary>
+        /// <param name="customerName">Name of the customer.</param>
+        /// <returns></returns>
+        public List<Incident> SearchIncidentsByCustomerName(string customerName)
+        {
+            List<Incident> incidents = new List<Incident>();
+            using (var connection = DBConnection.GetConnection())
+            {
+                connection.Open();
+                string query = @"
+                               SELECT Incidents.*
+                               FROM Incidents
+                               JOIN Customers ON Incidents.CustomerID = Customers.CustomerID
+                               WHERE Customers.Name = @customerName AND Incidents.DateClosed IS NULL";
+
+                using (var command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@customerName", customerName);
+                    using (var reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            
+                            var incident = new Incident
+                            {
+                                Title = reader["Title"].ToString(),
+                                Description = reader["Description"].ToString(),
+                                CustomerName = customerName 
+                                                            
+                            };
+                            incidents.Add(incident);
+                        }
+                    }
+                }
+            }
+            return incidents;
         }
 
     }

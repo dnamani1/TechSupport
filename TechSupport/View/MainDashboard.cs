@@ -19,9 +19,7 @@ namespace TechSupport.View
             InitializeComponent();
             incidentController = new IncidentController();
             userLabel.Text = incidentController.GetUsername();
-        }
-
-        
+        }  
 
         /// <summary>
         /// Handles the LinkClicked event of the LogoutLinkLabel control.
@@ -33,6 +31,11 @@ namespace TechSupport.View
             DialogResult = DialogResult.OK;
         }
 
+        /// <summary>
+        /// Handles the SelectedIndexChanged event of the MainDashBoardTabControl control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void MainDashBoardTabControl_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (mainDashBoardTabControl.SelectedTab == displayOpenIncidentsTabPage)

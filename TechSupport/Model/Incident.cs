@@ -9,7 +9,7 @@ namespace TechSupport.Model
     {
         private string _title;
         private string _description;
-
+        private string _customerName;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Incident"/> class.
@@ -18,6 +18,7 @@ namespace TechSupport.Model
         {
             _title = string.Empty;
             _description = string.Empty;
+            _customerName = string.Empty;
         }
 
         /// <summary>
@@ -58,6 +59,29 @@ namespace TechSupport.Model
                     throw new Exception("Description cannot be null or empty.");
                 }
                 _description = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the name of the customer.
+        /// </summary>
+        /// <value>
+        /// The name of the customer.
+        /// </value>
+        /// <exception cref="System.Exception">Customer name cannot be null.</exception>
+        public string CustomerName
+        {
+            get
+            {
+                return _customerName;
+            }
+            set
+            {
+                if (value == null)
+                {
+                    throw new Exception("Customer name cannot be null.");
+                }
+                _customerName = value;
             }
         }
 

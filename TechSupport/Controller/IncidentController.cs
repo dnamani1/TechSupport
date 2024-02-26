@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Security.Policy;
 using TechSupport.DAL;
 using TechSupport.Model;
 
@@ -111,5 +110,16 @@ namespace TechSupport.Controller
         {
             _incidentDBDal.AddIncident(customerName, productName, title, description);
         }
+
+        /// <summary>
+        /// Searches the name of the incidents by customer.
+        /// </summary>
+        /// <param name="customerName">Name of the customer.</param>
+        /// <returns></returns>
+        public List<Incident> SearchIncidentsByCustomerName(string customerName)
+        {    
+            return _incidentDBDal.SearchIncidentsByCustomerName(customerName);
+        }
+
     }
 }

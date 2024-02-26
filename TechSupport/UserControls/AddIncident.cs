@@ -2,7 +2,6 @@
 using System.Drawing;
 using System.Windows.Forms;
 using TechSupport.Controller;
-using TechSupport.Model;
 
 namespace TechSupport.UserControls
 {
