@@ -7,14 +7,14 @@ namespace TechSupport.UserControls
     /// Display Open Incidents
     /// </summary>
     /// <seealso cref="System.Windows.Forms.UserControl" />
-    public partial class DisplayOpenIncident : UserControl
+    public partial class DisplayOpenIncidentUserControl : UserControl
     {
         private readonly IncidentController _incidentController;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="DisplayOpenIncident"/> class.
+        /// Initializes a new instance of the <see cref="DisplayOpenIncidentUserControl"/> class.
         /// </summary>
-        public DisplayOpenIncident()
+        public DisplayOpenIncidentUserControl()
         {
             InitializeComponent();
             _incidentController = new IncidentController();

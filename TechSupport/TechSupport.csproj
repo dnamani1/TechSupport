@@ -47,30 +47,34 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\IncidentController.cs" />
+    <Compile Include="DAL\CustomerDBDal.cs" />
     <Compile Include="DAL\DBConnection.cs" />
     <Compile Include="DAL\IncidentDAL.cs" />
     <Compile Include="DAL\IncidentDBDal.cs" />
+    <Compile Include="DAL\ProductsDBDal.cs" />
+    <Compile Include="Model\Customer.cs" />
     <Compile Include="Model\OpenIncident.cs" />
     <Compile Include="Model\Incident.cs" />
+    <Compile Include="Model\Product.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UserControls\AddIncident.cs">
+    <Compile Include="UserControls\AddIncidentUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControls\AddIncident.Designer.cs">
-      <DependentUpon>AddIncident.cs</DependentUpon>
+    <Compile Include="UserControls\AddIncidentUserControl.Designer.cs">
+      <DependentUpon>AddIncidentUserControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\DisplayOpenIncident.cs">
+    <Compile Include="UserControls\DisplayOpenIncidentUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControls\DisplayOpenIncident.Designer.cs">
-      <DependentUpon>DisplayOpenIncident.cs</DependentUpon>
+    <Compile Include="UserControls\DisplayOpenIncidentUserControl.Designer.cs">
+      <DependentUpon>DisplayOpenIncidentUserControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\SearchIncident.cs">
+    <Compile Include="UserControls\SearchIncidentUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControls\SearchIncident.Designer.cs">
-      <DependentUpon>SearchIncident.cs</DependentUpon>
+    <Compile Include="UserControls\SearchIncidentUserControl.Designer.cs">
+      <DependentUpon>SearchIncidentUserControl.cs</DependentUpon>
     </Compile>
     <Compile Include="View\LoginForm.cs">
       <SubType>Form</SubType>
@@ -93,14 +97,14 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="UserControls\AddIncident.resx">
-      <DependentUpon>AddIncident.cs</DependentUpon>
+    <EmbeddedResource Include="UserControls\AddIncidentUserControl.resx">
+      <DependentUpon>AddIncidentUserControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\DisplayOpenIncident.resx">
-      <DependentUpon>DisplayOpenIncident.cs</DependentUpon>
+    <EmbeddedResource Include="UserControls\DisplayOpenIncidentUserControl.resx">
+      <DependentUpon>DisplayOpenIncidentUserControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\SearchIncident.resx">
-      <DependentUpon>SearchIncident.cs</DependentUpon>
+    <EmbeddedResource Include="UserControls\SearchIncidentUserControl.resx">
+      <DependentUpon>SearchIncidentUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>

@@ -13,6 +13,8 @@ namespace TechSupport.Controller
         private readonly string _username = "jane";
         private readonly string _password = "test1234";
         private readonly IncidentDBDal _incidentDBDal;
+        private readonly CustomerDBDal _customerDBDal;
+        private readonly ProductsDBDal _productsDBDal;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="IncidentController"/> class.
@@ -21,6 +23,8 @@ namespace TechSupport.Controller
         {
             _incidentDAL = new IncidentDAL();
             _incidentDBDal = new IncidentDBDal();
+            _customerDBDal = new CustomerDBDal();
+            _productsDBDal = new ProductsDBDal();
         }
 
         /// <summary>
@@ -72,18 +76,18 @@ namespace TechSupport.Controller
         /// Gets the customer names.
         /// </summary>
         /// <returns></returns>
-        public List<string> GetCustomerNames()
+        public List<Customer> GetCustomers()
         {
-            return _incidentDBDal.GetCustomerNames();
+            return _customerDBDal.GetCustomers();
         }
 
         /// <summary>
         /// Gets the product names.
         /// </summary>
         /// <returns></returns>
-        public List<string> GetProductNames()
+        public List<Product> GetProducts()
         {
-            return _incidentDBDal.GetProductNames();
+            return _productsDBDal.GetProducts();
         }
 
         /// <summary>
@@ -94,9 +98,9 @@ namespace TechSupport.Controller
         /// <returns>
         ///   <c>true</c> if [is customer registered] [the specified customer name]; otherwise, <c>false</c>.
         /// </returns>
-        public bool IsCustomerRegistered(string customerName, string productName)
+        public bool IsCustomerRegistered(int customerId, string productCode)
         {
-            return _incidentDBDal.IsCustomerRegistered(customerName, productName);  
+            return _incidentDBDal.IsCustomerRegistered(customerId, productCode);  
         }
 
         /// <summary>
@@ -106,9 +110,9 @@ namespace TechSupport.Controller
         /// <param name="productName">Name of the product.</param>
         /// <param name="title">The title.</param>
         /// <param name="description">The description.</param>
-        public void AddIncident(string customerName, string productName, string title, string description)
+        public void AddIncident(int customerName, string productCode, string title, string description)
         {
-            _incidentDBDal.AddIncident(customerName, productName, title, description);
+            _incidentDBDal.AddIncident(customerName, productCode, title, description);
         }
 
         /// <summary>

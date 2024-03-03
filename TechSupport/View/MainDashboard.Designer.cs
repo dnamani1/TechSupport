@@ -32,14 +32,14 @@ namespace TechSupport.View
         {
             this.mainDashBoardTabControl = new System.Windows.Forms.TabControl();
             this.addIncidentTabPage = new System.Windows.Forms.TabPage();
-            this.addIncidentUserControls = new TechSupport.UserControls.AddIncident();
+            this.addIncidentUserControls = new TechSupport.UserControls.AddIncidentUserControl();
             this.displayOpenIncidentsTabPage = new System.Windows.Forms.TabPage();
             this.dbLabel = new System.Windows.Forms.Label();
-            this.displayOpenIncidentUserControls = new TechSupport.UserControls.DisplayOpenIncident();
+            this.displayOpenIncidentUserControls = new TechSupport.UserControls.DisplayOpenIncidentUserControl();
             this.searchTabPage = new System.Windows.Forms.TabPage();
             this.userLabel = new System.Windows.Forms.Label();
             this.logoutLinkLabel = new System.Windows.Forms.LinkLabel();
-            this.searchIncident1 = new TechSupport.UserControls.SearchIncident();
+            this.searchIncident1 = new TechSupport.UserControls.SearchIncidentUserControl();
             this.mainDashBoardTabControl.SuspendLayout();
             this.addIncidentTabPage.SuspendLayout();
             this.displayOpenIncidentsTabPage.SuspendLayout();
@@ -178,13 +178,13 @@ namespace TechSupport.View
 
         private System.Windows.Forms.TabControl mainDashBoardTabControl;
         private System.Windows.Forms.TabPage addIncidentTabPage;
-        private UserControls.AddIncident addIncidentUserControls;
+        private UserControls.AddIncidentUserControl addIncidentUserControls;
         private Label userLabel;
         private LinkLabel logoutLinkLabel;
         private TabPage displayOpenIncidentsTabPage;
-        private UserControls.DisplayOpenIncident displayOpenIncidentUserControls;
+        private UserControls.DisplayOpenIncidentUserControl displayOpenIncidentUserControls;
         private Label dbLabel;
         private TabPage searchTabPage;
-        private UserControls.SearchIncident searchIncident1;
+        private UserControls.SearchIncidentUserControl searchIncident1;
     }
 }

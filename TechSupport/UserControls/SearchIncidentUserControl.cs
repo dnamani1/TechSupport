@@ -10,26 +10,26 @@ namespace TechSupport.UserControls
     /// Search Incident
     /// </summary>
     /// <seealso cref="System.Windows.Forms.UserControl" />
-    public partial class SearchIncident : UserControl
+    public partial class SearchIncidentUserControl : UserControl
     {
         private readonly IncidentController _incidentController;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="SearchIncident"/> class.
+        /// Initializes a new instance of the <see cref="SearchIncidentUserControl"/> class.
         /// </summary>
-        public SearchIncident()
+        public SearchIncidentUserControl()
         {
             InitializeComponent();
             this._incidentController = new IncidentController();
-            PopulateCustomerNameComboBox();
+            PopulateCustomersComboBox();
         }
 
         /// <summary>
         /// Populates the customer name ComboBox.
         /// </summary>
-        private void PopulateCustomerNameComboBox()
+        private void PopulateCustomersComboBox()
         {
-            var customerNames = _incidentController.GetCustomerNames();
+            var customerNames = _incidentController.GetCustomers();
             foreach (var name in customerNames)
             {
                 customerComboBox.Items.Add(name);

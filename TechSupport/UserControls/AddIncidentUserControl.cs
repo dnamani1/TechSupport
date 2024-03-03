@@ -9,15 +9,15 @@ namespace TechSupport.UserControls
     /// Addes the Incident
     /// </summary>
     /// <seealso cref="System.Windows.Forms.UserControl" />
-    public partial class AddIncident : UserControl
+    public partial class AddIncidentUserControl : UserControl
     {
 
         private readonly IncidentController controller;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="AddIncident"/> class.
+        /// Initializes a new instance of the <see cref="AddIncidentUserControl"/> class.
         /// </summary>
-        public AddIncident()
+        public AddIncidentUserControl()
         {
             InitializeComponent();
             controller = new IncidentController();
@@ -30,11 +30,10 @@ namespace TechSupport.UserControls
         /// </summary>
         private void PopulateCustomerComboBox()
         {
-            var customers = controller.GetCustomerNames();
-            foreach (var customer in customers)
-            {
-                customerComboBox.Items.Add(customer);
-            }
+            var customers = controller.GetCustomers();
+            customerComboBox.DataSource = customers;
+            customerComboBox.DisplayMember = "Name";
+            customerComboBox.ValueMember = "ID";
             if (customerComboBox.Items.Count > 0) customerComboBox.SelectedIndex = 0;
         }
 
@@ -43,11 +42,10 @@ namespace TechSupport.UserControls
         /// </summary>
         private void PopulateProductComboBox()
         {
-            var products = controller.GetProductNames();
-            foreach (var product in products)
-            {
-                productComboBox.Items.Add(product);
-            }
+            var products = controller.GetProducts();
+            productComboBox.DataSource = products;
+            productComboBox.DisplayMember = "Name";
+            productComboBox.ValueMember = "Code";
             if (productComboBox.Items.Count > 0) productComboBox.SelectedIndex = 0;
         }
 
@@ -81,8 +79,8 @@ namespace TechSupport.UserControls
         {
             string title = titleTextBox.Text;
             string description = descriptionTextBox.Text;
-            string customerName = customerComboBox.SelectedItem.ToString();
-            string productName = productComboBox.SelectedItem.ToString();
+            var customerId = Convert.ToInt32(customerComboBox.SelectedValue);
+            var productCode = productComboBox.SelectedValue.ToString();
 
             if (string.IsNullOrEmpty(title) || string.IsNullOrEmpty(description))
             {
@@ -102,9 +100,9 @@ namespace TechSupport.UserControls
                 return;
             }
 
-            if (controller.IsCustomerRegistered(customerName, productName))
+            if (controller.IsCustomerRegistered(customerId, productCode))
             {
-                controller.AddIncident(customerName, productName, title, description);
+                controller.AddIncident(customerId, productCode, title, description);
                 ClearFields();
                 customerErrorLabel.Text = "Incident added sucessfully!";
                 customerErrorLabel.ForeColor = Color.Green;
@@ -118,8 +116,6 @@ namespace TechSupport.UserControls
                 customerErrorLabel.Visible = true;
 
             }
-
-
         }
 
         /// <summary>
