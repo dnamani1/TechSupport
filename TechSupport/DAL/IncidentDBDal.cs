@@ -4,7 +4,6 @@ using System.Data;
 using System.Data.SqlClient;
 using TechSupport.Model;
 
-
 namespace TechSupport.DAL
 {
     /// <summary>
@@ -29,7 +28,7 @@ namespace TechSupport.DAL
                 Incidents.ProductCode, 
                 Incidents.DateOpened, 
                 Customers.Name AS CustomerName, 
-                ISNULL(Technicians.Name, '') AS TechnicianName, 
+                ISNULL(Technicians.Name, 'Not Assigned') AS TechnicianName, 
                 Incidents.Title 
             FROM 
                 Incidents 
@@ -52,7 +51,7 @@ namespace TechSupport.DAL
                         var productCode = reader.GetString(productCodeOrdinal);
                         var dateOpened = reader.GetDateTime(dateOpenedOrdinal);
                         var customerName = reader.GetString(customerNameOrdinal);
-                        var technicianName = reader.GetString(technicianNameOrdinal); 
+                        var technicianName = reader.GetString(technicianNameOrdinal);
                         var title = reader.GetString(titleOrdinal);
 
                         openIncidents.Add(new OpenIncident
@@ -140,48 +139,5 @@ namespace TechSupport.DAL
                 }
             }
         }
-
-        /// <summary>
-        /// Searches the name of the incidents by customer.
-        /// </summary>
-        /// <param name="customerName">Name of the customer.</param>
-        /// <returns></returns>
-        public List<Incident> SearchIncidentsByCustomerName(string customerName)
-        {
-            List<Incident> incidents = new List<Incident>();
-            using (var connection = DBConnection.GetConnection())
-            {
-                connection.Open();
-                string query = @"
-                               SELECT Incidents.*
-                               FROM Incidents
-                               JOIN Customers ON Incidents.CustomerID = Customers.CustomerID
-                               WHERE Customers.Name = @customerName AND Incidents.DateClosed IS NULL";
-
-                using (var command = new SqlCommand(query, connection))
-                {
-                    command.Parameters.Add("@customerName", SqlDbType.VarChar);
-                    command.Parameters["@customerName"].Value = customerName;
-
-                    using (var reader = command.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            
-                            var incident = new Incident
-                            {
-                                Title = reader["Title"].ToString(),
-                                Description = reader["Description"].ToString(),
-                                CustomerName = customerName 
-                                                            
-                            };
-                            incidents.Add(incident);
-                        }
-                    }
-                }
-            }
-            return incidents;
-        }
-
     }
 }
