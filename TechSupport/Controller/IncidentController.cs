@@ -15,6 +15,7 @@ namespace TechSupport.Controller
         private readonly CustomerDBDal _customerDBDal;
         private readonly ProductsDBDal _productsDBDal;
 
+
         /// <summary>
         /// Initializes a new instance of the <see cref="IncidentController"/> class.
         /// </summary>
@@ -80,7 +81,7 @@ namespace TechSupport.Controller
         /// </returns>
         public bool IsCustomerRegistered(int customerId, string productCode)
         {
-            return _incidentDBDal.IsCustomerRegistered(customerId, productCode);  
+            return _customerDBDal.IsCustomerRegistered(customerId, productCode);  
         }
 
         /// <summary>
