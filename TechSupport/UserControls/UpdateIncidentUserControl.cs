@@ -26,7 +26,7 @@ namespace TechSupport.UserControls
         /// </summary>
         private void PopulateTechnicianComboBox()
         {
-            List<UpdateIncident> technicians = controller.GetTechnicians();
+            var technicians = controller.GetTechnicians();
             technicians.Insert(0, new UpdateIncident() { TechnicianID = -1, TechnicianName = "-- Unassigned --" }); 
             technicianComboBox.DataSource = technicians;
             technicianComboBox.DisplayMember = "TechnicianName";
@@ -50,6 +50,7 @@ namespace TechSupport.UserControls
 
             if (string.IsNullOrWhiteSpace(incidentIdTextBox.Text))
             {
+                ClearFields();
                 incidentIdErrorLabel.Text = "Please enter an Incident ID.";
                 incidentIdErrorLabel.ForeColor = Color.Red;
                 incidentIdErrorLabel.Visible = true;
@@ -58,6 +59,7 @@ namespace TechSupport.UserControls
 
             if (!int.TryParse(incidentIdTextBox.Text, out int incidentID))
             {
+                ClearFields();
                 incidentIdErrorLabel.Text = "Incident ID must be a number.";
                 incidentIdErrorLabel.ForeColor = Color.Red;
                 incidentIdErrorLabel.Visible = true;
@@ -69,6 +71,7 @@ namespace TechSupport.UserControls
                 theIncident = controller.GetIncidentID(incidentID);
                 if (theIncident == null)
                 {
+                    ClearFields();
                     incidentIdErrorLabel.Text = "No Incident found with the provided ID.";
                     incidentIdErrorLabel.ForeColor = Color.Red;
                     incidentIdErrorLabel.Visible = true;
@@ -81,7 +84,7 @@ namespace TechSupport.UserControls
                 descriptionTextBox.Text = theIncident.Description;
                 dateOpenedTextBox.Text = theIncident.OpenedDate.ToShortDateString();
 
-                technicianComboBox.SelectedItem = theIncident.TechnicianName ?? "-- Unassigned --";
+                SelectTechnicianByName(theIncident.TechnicianName ?? "-- Unassigned --");
 
                 updateButton.Enabled = true;
                 closeButton.Enabled = true;
@@ -97,7 +100,37 @@ namespace TechSupport.UserControls
             }
         }
 
+        /// <summary>
+        /// Selects the name of the technician by.
+        /// </summary>
+        /// <param name="technicianName">Name of the technician.</param>
+        private void SelectTechnicianByName(string technicianName)
+        {
+            foreach (var item in technicianComboBox.Items)
+            {
+                if (item is UpdateIncident technician && string.Equals(technician.TechnicianName, technicianName, StringComparison.OrdinalIgnoreCase))
+                {
+                    technicianComboBox.SelectedItem = item;
+                    return;
+                }
+            }
+            technicianComboBox.SelectedIndex = technicianComboBox.Items.IndexOf("-- Unassigned --");
+        }
+
+        /// <summary>
+        /// Handles the Click event of the ClearButton control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void ClearButton_Click(object sender, EventArgs e)
+        {
+            ClearFields();
+        }
+
+        /// <summary>
+        /// Clears the d fields.
+        /// </summary>
+        private void ClearFields()
         {
             incidentIdTextBox.Clear();
             customerTextBox.Clear();
@@ -111,6 +144,7 @@ namespace TechSupport.UserControls
             updateButton.Enabled = false;
             closeButton.Enabled = false;
             textTextBox.Enabled = false;
+
         }
 
         private void UpdateButton_Click(object sender, EventArgs e)
