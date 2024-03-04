@@ -52,11 +52,10 @@
     <Compile Include="DAL\IncidentDAL.cs" />
     <Compile Include="DAL\IncidentDBDal.cs" />
     <Compile Include="DAL\ProductsDBDal.cs" />
+    <Compile Include="DAL\TechnicianDBDal.cs" />
     <Compile Include="DAL\UpdateIncidentDBDal.cs" />
-    <Compile Include="Model\Customer.cs" />
     <Compile Include="Model\OpenIncident.cs" />
     <Compile Include="Model\Incident.cs" />
-    <Compile Include="Model\Product.cs" />
     <Compile Include="Model\UpdateIncident.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

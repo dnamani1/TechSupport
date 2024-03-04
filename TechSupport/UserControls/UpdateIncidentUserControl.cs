@@ -1,11 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using TechSupport.Controller;
 using TechSupport.Model;
@@ -22,6 +17,30 @@ namespace TechSupport.UserControls
             InitializeComponent();
             controller = new IncidentController();
             theIncident = new UpdateIncident();
+            PopulateTechnicianComboBox();
+            SetInitialControlState();
+        }
+
+        /// <summary>
+        /// Populates the technician ComboBox.
+        /// </summary>
+        private void PopulateTechnicianComboBox()
+        {
+            List<UpdateIncident> technicians = controller.GetTechnicians();
+            technicians.Insert(0, new UpdateIncident() { TechnicianID = -1, TechnicianName = "-- Unassigned --" }); 
+            technicianComboBox.DataSource = technicians;
+            technicianComboBox.DisplayMember = "TechnicianName";
+            technicianComboBox.ValueMember = "TechnicianID";    
+        }
+
+        /// <summary>
+        /// Sets the initial state of the control.
+        /// </summary>
+        private void SetInitialControlState()
+        {
+            updateButton.Enabled = false;
+            closeButton.Enabled = false;
+            textTextBox.Enabled = false;
         }
 
         private void GetIncidentButton_Click(object sender, EventArgs e)
@@ -62,7 +81,7 @@ namespace TechSupport.UserControls
                 descriptionTextBox.Text = theIncident.Description;
                 dateOpenedTextBox.Text = theIncident.OpenedDate.ToShortDateString();
 
-                technicianComboBox.SelectedItem = theIncident.TechnicianName ?? "Not Assigned";
+                technicianComboBox.SelectedItem = theIncident.TechnicianName ?? "-- Unassigned --";
 
                 updateButton.Enabled = true;
                 closeButton.Enabled = true;
@@ -80,7 +99,18 @@ namespace TechSupport.UserControls
 
         private void ClearButton_Click(object sender, EventArgs e)
         {
-
+            incidentIdTextBox.Clear();
+            customerTextBox.Clear();
+            productTextBox.Clear();
+            titleTextBox.Clear();
+            dateOpenedTextBox.Clear();
+            descriptionTextBox.Clear();
+            textTextBox.Clear();
+            if (technicianComboBox.Items.Count > 0)
+                technicianComboBox.SelectedValue = -1;
+            updateButton.Enabled = false;
+            closeButton.Enabled = false;
+            textTextBox.Enabled = false;
         }
 
         private void UpdateButton_Click(object sender, EventArgs e)
@@ -90,7 +120,7 @@ namespace TechSupport.UserControls
 
         private void CloseButton_Click(object sender, EventArgs e)
         {
-
+            
         }
     }
 }

@@ -16,6 +16,14 @@ namespace TechSupport.Model
         public string ProductCode { get; set; }
 
         /// <summary>
+        /// Gets or sets the name.
+        /// </summary>
+        /// <value>
+        /// The name.
+        /// </value>
+        public string ProductName { get; set; }
+
+        /// <summary>
         /// Gets or sets the date opened.
         /// </summary>
         /// <value>
@@ -30,6 +38,14 @@ namespace TechSupport.Model
         /// The name of the customer.
         /// </value>
         public string CustomerName { get; set; }
+
+        /// <summary>
+        /// Gets or sets the identifier.
+        /// </summary>
+        /// <value>
+        /// The identifier.
+        /// </value>
+        public int ID { get; set; }
 
         /// <summary>
         /// Gets or sets the name of the technician.

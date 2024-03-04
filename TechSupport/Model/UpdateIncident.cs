@@ -44,6 +44,14 @@ namespace TechSupport.Model
         public string TechnicianName { get; set; }
 
         /// <summary>
+        /// Gets or sets the technician identifier.
+        /// </summary>
+        /// <value>
+        /// The technician identifier.
+        /// </value>
+        public int TechnicianID { get; set; }
+
+        /// <summary>
         /// Gets or sets the title.
         /// </summary>
         /// <value>

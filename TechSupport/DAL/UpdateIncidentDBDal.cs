@@ -61,7 +61,7 @@ namespace TechSupport.DAL
                             incident.IncidentID = incidentID;
                             incident.CustomerName = reader.GetString(customerNameIndex);
                             incident.ProductCode = reader.GetString(productCodeIndex);
-                            incident.TechnicianName = reader.IsDBNull(technicianNameIndex) ? "Not Assigned" : reader.GetString(technicianNameIndex);
+                            incident.TechnicianName = reader.IsDBNull(technicianNameIndex) ? "-- Unassigned --" : reader.GetString(technicianNameIndex);
                             incident.Title = reader.GetString(titleIndex);
                             incident.Description = reader.GetString(descriptionIndex);
                             incident.OpenedDate = reader.GetDateTime(dateOpenedIndex);

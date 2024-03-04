@@ -15,9 +15,9 @@ namespace TechSupport.DAL
         /// Gets the name of the customer.
         /// </summary>
         /// <returns></returns>
-        public List<Customer> GetCustomers()
+        public List<OpenIncident> GetCustomers()
         {
-            var customers = new List<Customer>();
+            var customers = new List<OpenIncident>();
             using (var connection = DBConnection.GetConnection())
             {
                 connection.Open();
@@ -27,10 +27,10 @@ namespace TechSupport.DAL
                 {
                     while (reader.Read())
                     {
-                        customers.Add(new Customer
+                        customers.Add(new OpenIncident
                         {
                             ID = reader.GetInt32(reader.GetOrdinal("CustomerID")),
-                            Name = reader.GetString(reader.GetOrdinal("Name"))
+                            CustomerName = reader.GetString(reader.GetOrdinal("Name"))
                         });
                     }
                 }

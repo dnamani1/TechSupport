@@ -94,6 +94,7 @@
             // 
             this.customerTextBox.Location = new System.Drawing.Point(158, 57);
             this.customerTextBox.Name = "customerTextBox";
+            this.customerTextBox.ReadOnly = true;
             this.customerTextBox.Size = new System.Drawing.Size(387, 20);
             this.customerTextBox.TabIndex = 4;
             // 
@@ -111,6 +112,7 @@
             // 
             this.productTextBox.Location = new System.Drawing.Point(158, 96);
             this.productTextBox.Name = "productTextBox";
+            this.productTextBox.ReadOnly = true;
             this.productTextBox.Size = new System.Drawing.Size(387, 20);
             this.productTextBox.TabIndex = 6;
             // 
@@ -138,11 +140,13 @@
             // 
             this.titleTextBox.Location = new System.Drawing.Point(158, 171);
             this.titleTextBox.Name = "titleTextBox";
+            this.titleTextBox.ReadOnly = true;
             this.titleTextBox.Size = new System.Drawing.Size(387, 20);
             this.titleTextBox.TabIndex = 10;
             // 
             // technicianComboBox
             // 
+            this.technicianComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.technicianComboBox.FormattingEnabled = true;
             this.technicianComboBox.Location = new System.Drawing.Point(158, 130);
             this.technicianComboBox.Name = "technicianComboBox";
@@ -163,6 +167,7 @@
             // 
             this.dateOpenedTextBox.Location = new System.Drawing.Point(158, 219);
             this.dateOpenedTextBox.Name = "dateOpenedTextBox";
+            this.dateOpenedTextBox.ReadOnly = true;
             this.dateOpenedTextBox.Size = new System.Drawing.Size(188, 20);
             this.dateOpenedTextBox.TabIndex = 13;
             // 
@@ -181,6 +186,7 @@
             this.descriptionTextBox.Location = new System.Drawing.Point(158, 261);
             this.descriptionTextBox.Multiline = true;
             this.descriptionTextBox.Name = "descriptionTextBox";
+            this.descriptionTextBox.ReadOnly = true;
             this.descriptionTextBox.Size = new System.Drawing.Size(387, 59);
             this.descriptionTextBox.TabIndex = 15;
             // 
@@ -240,7 +246,7 @@
             this.incidentIdErrorLabel.AutoSize = true;
             this.incidentIdErrorLabel.Location = new System.Drawing.Point(162, 41);
             this.incidentIdErrorLabel.Name = "incidentIdErrorLabel";
-            this.incidentIdErrorLabel.Size = new System.Drawing.Size(138, 20);
+            this.incidentIdErrorLabel.Size = new System.Drawing.Size(92, 13);
             this.incidentIdErrorLabel.TabIndex = 21;
             this.incidentIdErrorLabel.Text = "incidentErrorLabel";
             // 
@@ -249,7 +255,7 @@
             this.updateErrorLabel.AutoSize = true;
             this.updateErrorLabel.Location = new System.Drawing.Point(287, 448);
             this.updateErrorLabel.Name = "updateErrorLabel";
-            this.updateErrorLabel.Size = new System.Drawing.Size(132, 20);
+            this.updateErrorLabel.Size = new System.Drawing.Size(88, 13);
             this.updateErrorLabel.TabIndex = 22;
             this.updateErrorLabel.Text = "updateErrorLabel";
             // 

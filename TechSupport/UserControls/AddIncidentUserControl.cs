@@ -32,7 +32,7 @@ namespace TechSupport.UserControls
         {
             var customers = controller.GetCustomers();
             customerComboBox.DataSource = customers;
-            customerComboBox.DisplayMember = "Name";
+            customerComboBox.DisplayMember = "CustomerName";
             customerComboBox.ValueMember = "ID";
             if (customerComboBox.Items.Count > 0) customerComboBox.SelectedIndex = 0;
         }
@@ -45,7 +45,7 @@ namespace TechSupport.UserControls
             var products = controller.GetProducts();
             productComboBox.DataSource = products;
             productComboBox.DisplayMember = "Name";
-            productComboBox.ValueMember = "Code";
+            productComboBox.ValueMember = "ProductCode";
             if (productComboBox.Items.Count > 0) productComboBox.SelectedIndex = 0;
         }
 

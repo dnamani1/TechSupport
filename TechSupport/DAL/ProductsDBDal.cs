@@ -1,22 +1,26 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using TechSupport.Model;
 
 namespace TechSupport.DAL
 {
+
     /// <summary>
     ///  Data access layer class for Products.
     /// </summary>
     public class ProductsDBDal
     {
-
         /// <summary>
         /// Gets the product names.
         /// </summary>
         /// <returns></returns>
-        public List<Product> GetProducts()
+        public List<OpenIncident> GetProducts()
         {
-            var products = new List<Product>();
+            var products = new List<OpenIncident>();
             using (var connection = DBConnection.GetConnection())
             {
                 connection.Open();
@@ -26,10 +30,10 @@ namespace TechSupport.DAL
                 {
                     while (reader.Read())
                     {
-                        products.Add(new Product
+                        products.Add(new OpenIncident
                         {
-                            Code = reader.GetString(reader.GetOrdinal("ProductCode")),
-                            Name = reader.GetString(reader.GetOrdinal("Name"))
+                            ProductCode = reader.GetString(reader.GetOrdinal("ProductCode")),
+                            ProductName = reader.GetString(reader.GetOrdinal("Name"))
                         });
                     }
                 }

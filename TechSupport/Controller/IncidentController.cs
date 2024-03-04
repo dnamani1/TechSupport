@@ -15,6 +15,7 @@ namespace TechSupport.Controller
         private readonly CustomerDBDal _customerDBDal;
         private readonly ProductsDBDal _productsDBDal;
         private readonly UpdateIncidentDBDal _updateIncidentDBDal;
+        private readonly TechnicianDBDal _technicianDBDal;
 
 
         /// <summary>
@@ -26,6 +27,7 @@ namespace TechSupport.Controller
             _customerDBDal = new CustomerDBDal();
             _productsDBDal = new ProductsDBDal();
             _updateIncidentDBDal = new UpdateIncidentDBDal();
+            _technicianDBDal = new TechnicianDBDal();
         }
 
         /// <summary>
@@ -59,7 +61,7 @@ namespace TechSupport.Controller
         /// Gets the customer names.
         /// </summary>
         /// <returns></returns>
-        public List<Customer> GetCustomers()
+        public List<OpenIncident> GetCustomers()
         {
             return _customerDBDal.GetCustomers();
         }
@@ -68,7 +70,7 @@ namespace TechSupport.Controller
         /// Gets the product names.
         /// </summary>
         /// <returns></returns>
-        public List<Product> GetProducts()
+        public List<OpenIncident> GetProducts()
         {
             return _productsDBDal.GetProducts();
         }
@@ -108,6 +110,14 @@ namespace TechSupport.Controller
             return _updateIncidentDBDal.GetIncidentID(incidentID);
         }
 
+        /// <summary>
+        /// Gets the technicians.
+        /// </summary>
+        /// <returns></returns>
+        public List<UpdateIncident> GetTechnicians()
+        {
+            return _technicianDBDal.GetTechnicians();
+        }
 
     }
 }
