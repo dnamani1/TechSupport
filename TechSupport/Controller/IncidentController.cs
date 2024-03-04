@@ -14,6 +14,7 @@ namespace TechSupport.Controller
         private readonly IncidentDBDal _incidentDBDal;
         private readonly CustomerDBDal _customerDBDal;
         private readonly ProductsDBDal _productsDBDal;
+        private readonly UpdateIncidentDBDal _updateIncidentDBDal;
 
 
         /// <summary>
@@ -24,6 +25,7 @@ namespace TechSupport.Controller
             _incidentDBDal = new IncidentDBDal();
             _customerDBDal = new CustomerDBDal();
             _productsDBDal = new ProductsDBDal();
+            _updateIncidentDBDal = new UpdateIncidentDBDal();
         }
 
         /// <summary>
@@ -95,6 +97,17 @@ namespace TechSupport.Controller
         {
             _incidentDBDal.AddIncident(customerName, productCode, title, description);
         }
+
+        /// <summary>
+        /// Gets the incident identifier.
+        /// </summary>
+        /// <param name="incidentID">The incident identifier.</param>
+        /// <returns></returns>
+        public UpdateIncident GetIncidentID(int incidentID)
+        {
+            return _updateIncidentDBDal.GetIncidentID(incidentID);
+        }
+
 
     }
 }

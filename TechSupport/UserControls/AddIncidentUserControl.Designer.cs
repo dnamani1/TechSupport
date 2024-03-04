@@ -48,8 +48,7 @@
             // 
             this.addIncidentLabel.AutoSize = true;
             this.addIncidentLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addIncidentLabel.Location = new System.Drawing.Point(166, 17);
-            this.addIncidentLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.addIncidentLabel.Location = new System.Drawing.Point(363, 29);
             this.addIncidentLabel.Name = "addIncidentLabel";
             this.addIncidentLabel.Size = new System.Drawing.Size(205, 25);
             this.addIncidentLabel.TabIndex = 0;
@@ -59,8 +58,7 @@
             // 
             this.titleLabel.AutoSize = true;
             this.titleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.titleLabel.Location = new System.Drawing.Point(117, 164);
-            this.titleLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.titleLabel.Location = new System.Drawing.Point(230, 254);
             this.titleLabel.Name = "titleLabel";
             this.titleLabel.Size = new System.Drawing.Size(58, 20);
             this.titleLabel.TabIndex = 1;
@@ -68,10 +66,9 @@
             // 
             // titleTextBox
             // 
-            this.titleTextBox.Location = new System.Drawing.Point(267, 161);
-            this.titleTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.titleTextBox.Location = new System.Drawing.Point(400, 248);
             this.titleTextBox.Name = "titleTextBox";
-            this.titleTextBox.Size = new System.Drawing.Size(140, 20);
+            this.titleTextBox.Size = new System.Drawing.Size(208, 26);
             this.titleTextBox.TabIndex = 2;
             this.titleTextBox.TextChanged += new System.EventHandler(this.TitleTextBox_TextChanged);
             // 
@@ -79,8 +76,7 @@
             // 
             this.descriptionLabel.AutoSize = true;
             this.descriptionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.descriptionLabel.Location = new System.Drawing.Point(117, 211);
-            this.descriptionLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.descriptionLabel.Location = new System.Drawing.Point(230, 325);
             this.descriptionLabel.Name = "descriptionLabel";
             this.descriptionLabel.Size = new System.Drawing.Size(115, 20);
             this.descriptionLabel.TabIndex = 3;
@@ -88,21 +84,19 @@
             // 
             // descriptionTextBox
             // 
-            this.descriptionTextBox.Location = new System.Drawing.Point(267, 209);
-            this.descriptionTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.descriptionTextBox.Location = new System.Drawing.Point(400, 322);
             this.descriptionTextBox.Multiline = true;
             this.descriptionTextBox.Name = "descriptionTextBox";
-            this.descriptionTextBox.Size = new System.Drawing.Size(140, 55);
+            this.descriptionTextBox.Size = new System.Drawing.Size(208, 82);
             this.descriptionTextBox.TabIndex = 4;
             this.descriptionTextBox.TextChanged += new System.EventHandler(this.DescriptionTextBox_TextChanged);
             // 
             // addIncidentButton
             // 
             this.addIncidentButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addIncidentButton.Location = new System.Drawing.Point(120, 304);
-            this.addIncidentButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.addIncidentButton.Location = new System.Drawing.Point(234, 468);
             this.addIncidentButton.Name = "addIncidentButton";
-            this.addIncidentButton.Size = new System.Drawing.Size(144, 41);
+            this.addIncidentButton.Size = new System.Drawing.Size(216, 63);
             this.addIncidentButton.TabIndex = 7;
             this.addIncidentButton.Text = "Create Incident";
             this.addIncidentButton.UseVisualStyleBackColor = true;
@@ -111,10 +105,9 @@
             // cancelButton
             // 
             this.cancelButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cancelButton.Location = new System.Drawing.Point(332, 313);
-            this.cancelButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cancelButton.Location = new System.Drawing.Point(498, 482);
             this.cancelButton.Name = "cancelButton";
-            this.cancelButton.Size = new System.Drawing.Size(75, 32);
+            this.cancelButton.Size = new System.Drawing.Size(112, 49);
             this.cancelButton.TabIndex = 9;
             this.cancelButton.Text = "Clear";
             this.cancelButton.UseVisualStyleBackColor = true;
@@ -123,27 +116,24 @@
             // titleErrorLabel
             // 
             this.titleErrorLabel.AutoSize = true;
-            this.titleErrorLabel.Location = new System.Drawing.Point(264, 187);
-            this.titleErrorLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.titleErrorLabel.Location = new System.Drawing.Point(396, 288);
             this.titleErrorLabel.Name = "titleErrorLabel";
-            this.titleErrorLabel.Size = new System.Drawing.Size(0, 13);
+            this.titleErrorLabel.Size = new System.Drawing.Size(0, 20);
             this.titleErrorLabel.TabIndex = 10;
             // 
             // descriptionErrorLabel
             // 
             this.descriptionErrorLabel.AutoSize = true;
-            this.descriptionErrorLabel.Location = new System.Drawing.Point(264, 274);
-            this.descriptionErrorLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.descriptionErrorLabel.Location = new System.Drawing.Point(396, 422);
             this.descriptionErrorLabel.Name = "descriptionErrorLabel";
-            this.descriptionErrorLabel.Size = new System.Drawing.Size(0, 13);
+            this.descriptionErrorLabel.Size = new System.Drawing.Size(0, 20);
             this.descriptionErrorLabel.TabIndex = 11;
             // 
             // customerLabel
             // 
             this.customerLabel.AutoSize = true;
             this.customerLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.customerLabel.Location = new System.Drawing.Point(117, 83);
-            this.customerLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.customerLabel.Location = new System.Drawing.Point(233, 128);
             this.customerLabel.Name = "customerLabel";
             this.customerLabel.Size = new System.Drawing.Size(96, 20);
             this.customerLabel.TabIndex = 12;
@@ -153,8 +143,7 @@
             // 
             this.productLabel.AutoSize = true;
             this.productLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.productLabel.Location = new System.Drawing.Point(117, 122);
-            this.productLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.productLabel.Location = new System.Drawing.Point(233, 191);
             this.productLabel.Name = "productLabel";
             this.productLabel.Size = new System.Drawing.Size(81, 20);
             this.productLabel.TabIndex = 13;
@@ -164,34 +153,31 @@
             // 
             this.customerComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.customerComboBox.FormattingEnabled = true;
-            this.customerComboBox.Location = new System.Drawing.Point(267, 83);
-            this.customerComboBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.customerComboBox.Location = new System.Drawing.Point(400, 128);
             this.customerComboBox.Name = "customerComboBox";
-            this.customerComboBox.Size = new System.Drawing.Size(140, 21);
+            this.customerComboBox.Size = new System.Drawing.Size(208, 28);
             this.customerComboBox.TabIndex = 14;
             // 
             // productComboBox
             // 
             this.productComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.productComboBox.FormattingEnabled = true;
-            this.productComboBox.Location = new System.Drawing.Point(267, 122);
-            this.productComboBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.productComboBox.Location = new System.Drawing.Point(400, 188);
             this.productComboBox.Name = "productComboBox";
-            this.productComboBox.Size = new System.Drawing.Size(140, 21);
+            this.productComboBox.Size = new System.Drawing.Size(208, 28);
             this.productComboBox.TabIndex = 15;
             // 
             // customerErrorLabel
             // 
             this.customerErrorLabel.AutoSize = true;
-            this.customerErrorLabel.Location = new System.Drawing.Point(192, 347);
-            this.customerErrorLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.customerErrorLabel.Location = new System.Drawing.Point(288, 534);
             this.customerErrorLabel.Name = "customerErrorLabel";
-            this.customerErrorLabel.Size = new System.Drawing.Size(0, 13);
+            this.customerErrorLabel.Size = new System.Drawing.Size(0, 20);
             this.customerErrorLabel.TabIndex = 16;
             // 
-            // AddIncident
+            // AddIncidentUserControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.customerErrorLabel);
             this.Controls.Add(this.productComboBox);
@@ -207,9 +193,8 @@
             this.Controls.Add(this.titleTextBox);
             this.Controls.Add(this.titleLabel);
             this.Controls.Add(this.addIncidentLabel);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.Name = "AddIncident";
-            this.Size = new System.Drawing.Size(531, 380);
+            this.Name = "AddIncidentUserControl";
+            this.Size = new System.Drawing.Size(796, 585);
             this.ResumeLayout(false);
             this.PerformLayout();
 
