@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 using TechSupport.Controller;
@@ -43,6 +42,11 @@ namespace TechSupport.UserControls
             textTextBox.Enabled = false;
         }
 
+        /// <summary>
+        /// Handles the Click event of the GetIncidentButton control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void GetIncidentButton_Click(object sender, EventArgs e)
         {
             incidentIdErrorLabel.Visible = false;
@@ -144,12 +148,80 @@ namespace TechSupport.UserControls
             updateButton.Enabled = false;
             closeButton.Enabled = false;
             textTextBox.Enabled = false;
-
+            updateErrorLabel.Text =  "";
+            updateErrorLabel.Visible = false;
         }
 
         private void UpdateButton_Click(object sender, EventArgs e)
         {
+            string newTextToAdd = textTextBox.Text;
+            bool technicianChanged = technicianComboBox.SelectedItem.ToString() != theIncident.TechnicianName;
+            bool hasNewTextToAdd = !string.IsNullOrEmpty(newTextToAdd);
+            string newDescription = descriptionTextBox.Text;
 
+            if (newDescription.Length >= 200 && hasNewTextToAdd)
+            {
+                MessageBox.Show("The description is already at the maximum length of 200 characters. You cannot add more text.", "Description Full", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                
+                if (technicianChanged)
+                {
+                    UpdateTechnicianOnly();
+                }
+                return;
+            }
+
+            if (hasNewTextToAdd)
+            {
+                string currentDate = DateTime.Now.ToShortDateString();
+                newDescription += $"\r\n<{currentDate}> {newTextToAdd}";
+            }
+
+            if (newDescription.Length > 200)
+            {
+                DialogResult truncateConfirm = MessageBox.Show("Description will be truncated to 200 characters. Continue?", "Truncate Description", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (truncateConfirm == DialogResult.No)
+                {
+                    return; 
+                }
+                newDescription = newDescription.Substring(0, 200); 
+            }
+
+            if (technicianChanged || hasNewTextToAdd)
+            {
+                theIncident.Description = newDescription;
+                if (technicianChanged)
+                {
+                    theIncident.TechnicianID = ((UpdateIncident)technicianComboBox.SelectedItem).TechnicianID;
+                    theIncident.TechnicianName = technicianComboBox.SelectedItem.ToString();
+                }
+                controller.UpdateIncident(theIncident);
+
+                descriptionTextBox.Text = theIncident.Description;
+                textTextBox.Clear();
+                updateErrorLabel.Text = "Incident updated successfully.";
+                updateErrorLabel.ForeColor = Color.Green;
+                updateErrorLabel.Visible = true;
+            }
+            else
+            { 
+                updateErrorLabel.Text = "No changes to update.";
+                updateErrorLabel.ForeColor = Color.Red;
+                updateErrorLabel.Visible = true;
+            }
+        }
+
+        /// <summary>
+        /// Updates the technician only.
+        /// </summary>
+        private void UpdateTechnicianOnly()
+        {
+            theIncident.TechnicianID = ((UpdateIncident)technicianComboBox.SelectedItem).TechnicianID;
+            theIncident.TechnicianName = technicianComboBox.SelectedItem.ToString();
+            controller.UpdateIncident(theIncident);
+
+            updateErrorLabel.Text = "Technician updated successfully.";
+            updateErrorLabel.ForeColor = Color.Green;
+            updateErrorLabel.Visible = true;
         }
 
         private void CloseButton_Click(object sender, EventArgs e)

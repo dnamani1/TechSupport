@@ -107,7 +107,7 @@ namespace TechSupport.Controller
         /// <returns></returns>
         public UpdateIncident GetIncidentID(int incidentID)
         {
-            return _updateIncidentDBDal.GetIncidentID(incidentID);
+            return _incidentDBDal.GetIncidentID(incidentID);
         }
 
         /// <summary>
@@ -119,5 +119,13 @@ namespace TechSupport.Controller
             return _technicianDBDal.GetTechnicians();
         }
 
+        /// <summary>
+        /// Updates the incident.
+        /// </summary>
+        /// <param name="myIncident">My incident.</param>
+        public void UpdateIncident(UpdateIncident myIncident)
+        {
+            _updateIncidentDBDal.UpdateIncident(myIncident);
+        }
     }
 }
