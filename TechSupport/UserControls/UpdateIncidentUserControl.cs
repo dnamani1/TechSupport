@@ -6,11 +6,18 @@ using TechSupport.Model;
 
 namespace TechSupport.UserControls
 {
+    /// <summary>
+    /// Update the Incident
+    /// </summary>
+    /// <seealso cref="System.Windows.Forms.UserControl" />
     public partial class UpdateIncidentUserControl : UserControl
     {
         private readonly IncidentController controller;
         private UpdateIncident theIncident;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="UpdateIncidentUserControl"/> class.
+        /// </summary>
         public UpdateIncidentUserControl()
         {
             InitializeComponent();
@@ -90,10 +97,15 @@ namespace TechSupport.UserControls
 
                 SelectTechnicianByName(theIncident.TechnicianName ?? "-- Unassigned --");
 
-                updateButton.Enabled = true;
-                closeButton.Enabled = true;
-                textTextBox.Enabled = true;
-                textTextBox.Clear();
+                if (theIncident.ClosedDate != DateTime.MinValue && theIncident.ClosedDate != null)
+                {
+                    DisableEditing();
+                }
+                else
+                {
+                    EnableEditing();
+                }
+            
             }
             catch (Exception ex)
             {
@@ -103,6 +115,29 @@ namespace TechSupport.UserControls
                 incidentIdErrorLabel.Visible = true;
             }
         }
+
+        /// <summary>
+        /// Disables the editing.
+        /// </summary>
+        private void DisableEditing()
+        {
+            updateButton.Enabled = false;
+            closeButton.Enabled = false;
+            textTextBox.Enabled = false;
+            technicianComboBox.Enabled = false;
+        }
+
+        /// <summary>
+        /// Enables the editing.
+        /// </summary>
+        private void EnableEditing()
+        {
+            updateButton.Enabled = true;
+            closeButton.Enabled = true;
+            textTextBox.Enabled = true;
+            technicianComboBox.Enabled = true;
+        }
+
 
         /// <summary>
         /// Selects the name of the technician by.
@@ -152,8 +187,13 @@ namespace TechSupport.UserControls
             updateErrorLabel.Visible = false;
         }
 
+        /// <summary>
+        /// Handles the Click event of the UpdateButton control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void UpdateButton_Click(object sender, EventArgs e)
-        {
+        { 
             string newTextToAdd = textTextBox.Text;
             bool technicianChanged = technicianComboBox.SelectedItem.ToString() != theIncident.TechnicianName;
             bool hasNewTextToAdd = !string.IsNullOrEmpty(newTextToAdd);
@@ -161,8 +201,10 @@ namespace TechSupport.UserControls
 
             if (newDescription.Length >= 200 && hasNewTextToAdd)
             {
-                MessageBox.Show("The description is already at the maximum length of 200 characters. You cannot add more text.", "Description Full", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                
+                updateErrorLabel.Text = "Description already at maximum length. Additional text will not be added.";
+                updateErrorLabel.ForeColor = Color.Red;
+                updateErrorLabel.Visible = true;
+
                 if (technicianChanged)
                 {
                     UpdateTechnicianOnly();
@@ -224,9 +266,65 @@ namespace TechSupport.UserControls
             updateErrorLabel.Visible = true;
         }
 
+        /// <summary>
+        /// Handles the Click event of the CloseButton control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void CloseButton_Click(object sender, EventArgs e)
         {
-            
+            if (technicianComboBox.SelectedItem.ToString() == "-- Unassigned --")
+            {
+                updateErrorLabel.Text = "An incident cannot be closed without a technician assigned.";
+                updateErrorLabel.ForeColor = Color.Red;
+                updateErrorLabel.Visible = true;
+                return;
+            }
+
+            DialogResult result;
+            DialogResult overloadedDescription = DialogResult.OK;
+            string newTextToAdd = textTextBox.Text.Trim();
+            bool hasNewTextToAdd = !string.IsNullOrEmpty(newTextToAdd);
+            string newDescription = descriptionTextBox.Text;
+
+            if (hasNewTextToAdd)
+            {
+                string currentDate = DateTime.Now.ToShortDateString();
+                newDescription += $"\r\n<{currentDate}> {newTextToAdd}";
+
+                if (newDescription.Length > 200)
+                {
+                    updateErrorLabel.Text = "Description will be truncated as it exceeds 200 characters.";
+                    updateErrorLabel.ForeColor = Color.Orange;
+                    updateErrorLabel.Visible = true;
+                    newDescription = newDescription.Substring(0, 200); 
+                }
+            }
+
+            result = MessageBox.Show("Would you like to close the incident?", "Closing Incident", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+
+            if (result == overloadedDescription)
+            {
+                theIncident.Description = newDescription;
+                if (technicianComboBox.SelectedItem != null)
+                {
+                    theIncident.TechnicianName = technicianComboBox.SelectedItem.ToString();
+                }
+
+                controller.UpdateIncident(theIncident);
+                controller.CloseIncident(theIncident); 
+
+                updateErrorLabel.Text = "Incident closed successfully.";
+                updateErrorLabel.ForeColor = Color.Green;
+                updateErrorLabel.Visible = true;
+
+                DisableEditing();
+            }
+            else
+            {
+                updateErrorLabel.Text = "";
+                updateErrorLabel.Visible = false;
+            }
         }
     }
 }

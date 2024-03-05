@@ -28,7 +28,7 @@ namespace TechSupport.DAL
                 {
 
                     var techIDParam = command.Parameters.Add("@techID", SqlDbType.Int);
-                    techIDParam.Value = myIncident.TechnicianID; 
+                    techIDParam.Value = myIncident.TechnicianID;
 
                     var descriptionParam = command.Parameters.Add("@description", SqlDbType.VarChar);
                     descriptionParam.Value = myIncident.Description; 

@@ -16,6 +16,7 @@ namespace TechSupport.Controller
         private readonly ProductsDBDal _productsDBDal;
         private readonly UpdateIncidentDBDal _updateIncidentDBDal;
         private readonly TechnicianDBDal _technicianDBDal;
+        private readonly ClosedIncidentDBDal _closedIncidentDBDal;
 
 
         /// <summary>
@@ -28,6 +29,7 @@ namespace TechSupport.Controller
             _productsDBDal = new ProductsDBDal();
             _updateIncidentDBDal = new UpdateIncidentDBDal();
             _technicianDBDal = new TechnicianDBDal();
+            _closedIncidentDBDal = new ClosedIncidentDBDal();
         }
 
         /// <summary>
@@ -126,6 +128,15 @@ namespace TechSupport.Controller
         public void UpdateIncident(UpdateIncident myIncident)
         {
             _updateIncidentDBDal.UpdateIncident(myIncident);
+        }
+
+        /// <summary>
+        /// Closes the incident.
+        /// </summary>
+        /// <param name="myIncident">My incident.</param>
+        public void CloseIncident(UpdateIncident myIncident)
+        {
+            _closedIncidentDBDal.CloseIncident(myIncident);
         }
     }
 }

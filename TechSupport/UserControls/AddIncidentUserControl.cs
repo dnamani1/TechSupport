@@ -44,7 +44,7 @@ namespace TechSupport.UserControls
         {
             var products = controller.GetProducts();
             productComboBox.DataSource = products;
-            productComboBox.DisplayMember = "Name";
+            productComboBox.DisplayMember = "ProductName";
             productComboBox.ValueMember = "ProductCode";
             if (productComboBox.Items.Count > 0) productComboBox.SelectedIndex = 0;
         }

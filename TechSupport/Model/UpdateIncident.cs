@@ -76,11 +76,11 @@ namespace TechSupport.Model
         public string Description { get; set; }
 
         /// <summary>
-        /// Gets or sets the text to add.
+        /// Gets or sets the closed date.
         /// </summary>
         /// <value>
-        /// The text to add.
+        /// The closed date.
         /// </value>
-        public string TextToAdd { get; set; }
+        public DateTime ClosedDate { get;  set; }
     }
 }

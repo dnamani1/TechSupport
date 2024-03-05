@@ -129,7 +129,8 @@ namespace TechSupport.DAL
                                     Technicians.Name AS TechnicianName, 
                                     Incidents.DateOpened, 
                                     Incidents.Title, 
-                                    Incidents.Description 
+                                    Incidents.Description, 
+                                    Incidents.DateClosed
                                     FROM Incidents
                                         LEFT JOIN Customers ON Incidents.CustomerID = Customers.CustomerID
                                     LEFT JOIN Technicians ON Incidents.TechID = Technicians.TechID
@@ -158,7 +159,7 @@ namespace TechSupport.DAL
                             incident.Title = reader.GetString(titleIndex);
                             incident.Description = reader.GetString(descriptionIndex);
                             incident.OpenedDate = reader.GetDateTime(dateOpenedIndex);
-
+                            incident.ClosedDate = reader["DateClosed"] == DBNull.Value ? DateTime.MinValue : reader.GetDateTime(reader.GetOrdinal("DateClosed"));
                         }
                     }
                 }
