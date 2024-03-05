@@ -246,18 +246,16 @@
             this.incidentIdErrorLabel.AutoSize = true;
             this.incidentIdErrorLabel.Location = new System.Drawing.Point(162, 41);
             this.incidentIdErrorLabel.Name = "incidentIdErrorLabel";
-            this.incidentIdErrorLabel.Size = new System.Drawing.Size(92, 13);
+            this.incidentIdErrorLabel.Size = new System.Drawing.Size(0, 20);
             this.incidentIdErrorLabel.TabIndex = 21;
-            this.incidentIdErrorLabel.Text = "incidentErrorLabel";
             // 
             // updateErrorLabel
             // 
             this.updateErrorLabel.AutoSize = true;
             this.updateErrorLabel.Location = new System.Drawing.Point(287, 448);
             this.updateErrorLabel.Name = "updateErrorLabel";
-            this.updateErrorLabel.Size = new System.Drawing.Size(88, 13);
+            this.updateErrorLabel.Size = new System.Drawing.Size(0, 20);
             this.updateErrorLabel.TabIndex = 22;
-            this.updateErrorLabel.Text = "updateErrorLabel";
             // 
             // UpdateIncidentUserControl
             // 
